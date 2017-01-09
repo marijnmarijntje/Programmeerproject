@@ -1,16 +1,18 @@
 # Programmeerproject 
-## Data visualisatie project voor de minor programmeren
+## Data visualisatie voor de minor programmeren
 ## Door Marijn Gulpen 09-07-2017
 
 ### CO2 uitstoot
 
 De data visualisatie van dit project zal informatie verstrekken over de CO2 emissies over de hele wereld. De gebruiker komt dingen te weten per land maar ook zal er een algemeen beeld worden geschetst. Dit zal door middel van een wereldkaart en verschillende soorten grafieken gevisualiseerd worden. 
-De [worldbank databases](http://databank.worldbank.org/data/home.aspx) zullen worden gebruikt voor de informatie per land. Voor de temperatuurstijging zal een database van de [NASA](http://climate.nasa.gov/vital-signs/global-temperature) gebruikt worden. 
+De [worldbank databases](http://databank.worldbank.org/data/home.aspx) zullen worden gebruikt voor de informatie per land. Voor de temperatuurstijging zal een database van de [NASA](http://climate.nasa.gov/vital-signs/global-temperature) gebruikt worden. De data zal omgezet worden naar JSON waarbij de landen worden ingedeeld op hun landcode en daarnaast krijgen ze een fillkey voor hun kleur op de wereld kaart. 
+
+Alle visualisaties worden met D3 gemaakt. De wereldkaart die wordt gebruikt staat in de map javascript. 
 
 #### Visualisaties
 
 ###### **Visualisatie 1 Lijngrafiek** 
-De grafiek laat temperatuurstijging zien. Onder de grafiek wordt verteld wat de effecten zijn van de temperatuurstijging en de oorzaken. Één van de oorzaken is CO2 emissies en daar wordt dan verder op voortborduurt. 
+De grafiek laat temperatuurstijging zien. Onder de grafiek wordt verteld wat de effecten zijn van de temperatuurstijging en de oorzaken. Één van de oorzaken is CO2 emissies en daar wordt dan verder op voortborduurt. Deze visualisatie heeft verder geen interactie met de andere visualisaties en aangezien het een extra visualisatie is zal hier pas op het laatst aandacht aan worden besteed. Het valt dus niet onder het *minimum viable product*. 
  
 ###### **Visualisatie 2 Wereldkaart**
 Wereldkaart visualisatie met CO2 emissies van verschillende jaren (= *interactive component*) (maximaal tot 2013 ivm data). Kleurgebruik met verschillende klasses van hoog naar laag.
