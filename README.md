@@ -30,4 +30,4 @@ Visualisatie 2, 3 en 4 zullen met elkaar gelinkt worden.
 Door te kijken naar de landen met de grootste uitstoot en de minste uitstoot zal er gekeken worden of er een link is met de bronnen en/of met de GDP van het land.
 
 ![GitHub Logo](/doc/design1.jpg)
-Format: ![Alt Text](url)
+
