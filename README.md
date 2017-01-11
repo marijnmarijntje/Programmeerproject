@@ -1,4 +1,4 @@
-# Programmeerproject 
+# Programmeerproject Proposal
 ## Data visualisatie voor de minor programmeren
 ## Door Marijn Gulpen 09-07-2017
 
@@ -22,12 +22,12 @@ Per landkaart wordt gevisualiseerd welke landen de grootste CO2 uitstoot hadden 
 ###### **Visualisatie 3 Lijngrafiek (2 y-assen)**
 Ook wordt er een lijngrafiek laten zien van de CO2 emissies van een x aantal jaren (lijn 1) en iets van inkomen of gdp van hetzelfde aantal jaren (lijn 2).
 
-###### **Visualisatie 4 Barchart**
-Als er op een land geklikt wordt komt er een barchart met % CO2 emissies van verschillende bronnen.
+###### **Visualisatie 4 Piechart**
+Als er op een land geklikt wordt komt er een piechart met % CO2 emissies van verschillende bronnen, samen wordt dit 100%.
 
 Visualisatie 2, 3 en 4 zullen met elkaar gelinkt worden. 
 
 Door te kijken naar de landen met de grootste uitstoot en de minste uitstoot zal er gekeken worden of er een link is met de bronnen en/of met de GDP van het land.
 
-![GitHub Logo](/doc/design1.jpg)
+![GitHub Logo](/doc/readme1.jpg)
 
