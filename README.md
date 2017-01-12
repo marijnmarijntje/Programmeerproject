@@ -20,7 +20,7 @@ Met een tooltip wordt wat algemene informatie gegeven over het land (zoals naam,
 Per landkaart wordt gevisualiseerd welke landen de grootste CO2 uitstoot hadden en ook welke de minst grote uitstoot hadden. In een tabel of in een barchart (= *interactive component*). 
 
 ###### **Visualisatie 3 Lijngrafiek (2 y-assen)**
-Ook wordt er een lijngrafiek laten zien van de CO2 emissies van een x aantal jaren (lijn 1) en iets van inkomen of gdp van hetzelfde aantal jaren (lijn 2).
+Ook wordt er een lijngrafiek laten zien van de CO2 emissies van 1960 tm 2013 (lijn 1) en de gdp over hetzelfde aantal jaren (lijn 2).
 
 ###### **Visualisatie 4 Piechart**
 Als er op een land geklikt wordt komt er een piechart met % CO2 emissies van verschillende bronnen, samen wordt dit 100%.
