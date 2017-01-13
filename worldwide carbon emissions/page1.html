@@ -1,0 +1,36 @@
+<!-- This will be the homepage (and for the minimum viable product also the only page) -->
+
+<!DOCTYPE html>
+<html>
+
+    <head>
+
+    	<meta charset="utf-8">
+    	<title>Programmeerproject Marijn Gulpen</title>
+    
+    </head>
+
+    <body>
+        
+        
+        <link rel="stylesheet" type="text/css" href="css/page1.css"/>
+    	<h1> Worldwide CO2 emissions</h1>
+  		<h2> Source: <a href="http://databank.worldbank.org/data/home.aspx">The World Bank</a></h2>
+ 
+		<div id="worldmap" ></div>
+		<div class='time-slider'>
+	        <h3>Title for time slide (optional)</h3>
+	        <label id='year'></label>
+	        <input id='slider' type='range' min='0' max='53' step='1' value='0' />
+	    </div>
+
+	    <div id="tooltip", style = "visibility: hidden"></div>
+
+		<script src="http://d3js.org/d3.v3.min.js"></script>
+		<script src="http://d3js.org/topojson.v1.min.js"></script>
+		<script type="text/javascript" src="javascript/worldmap.js"></script>
+		<script type="text/javascript" src="javascript/start.js"></script>	
+		
+	</body>
+
+</html> 

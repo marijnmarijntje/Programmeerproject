@@ -1,0 +1,73 @@
+/*title*/
+h1 {
+    font-size: 1.8em;
+    font-weight: bold;
+    text-align: center;
+    font-family: "Verdana", sans-serif;
+}
+
+/*link to source*/
+h2 {
+    font-size: 0.9em;
+    font-weight: initial;
+    text-align: center;
+    font-family: "Verdana", sans-serif;
+}
+
+/*slider*/
+.time-slider {
+    background-color: #fff;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+/*title slider*/
+.time-slider h3 {
+    font-size: 0.6em;
+    font-weight: initial;
+    font-family: "Verdana", sans-serif;
+}
+
+#worldmap {
+    position: relative; 
+    width: 1000px; 
+    height: 500px;
+    margin: auto;
+}
+
+/*space between legend blocks*/
+.datamaps-legend dd {
+    margin-right: 15px;
+}
+
+/*location of legend*/
+.datamaps-legend {
+    left: 325px;
+    top: 0;
+}
+
+#duallinegraph{
+    width: 600px; 
+    height: 270px;
+}
+
+.piechart-vis {
+    width: 400px;
+    height: 300px;
+}
+
+.piechart-vis .piechart-title {
+    font-size: 0.8em;
+    font-weight: initial;
+    font-family: "Verdana", sans-serif;
+}
+
+.arc .numbers {
+    font-size: 0.8em;
+    font-weight: initial;
+    font-family: "Verdana", sans-serif;
+}
+
+.hovertable {
+    width:200px;
+}

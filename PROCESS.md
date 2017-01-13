@@ -21,3 +21,8 @@ To do for tomorrow:
 ## Day 4 (12-01-2017)
 I decided to make one big JSON file instead of two files. This is easy for visualisation 2 and 4. However, more attention need to be given to the dual line graph.
 I also used all years (1960 till 2013) instead of 3 years. 
+
+## Day 5 (13-01-2017)
+Today I made my worldmap, which can only be used for 1 year. The code is now written for 2013.
+I also made a linked piechart. It works, however it still needs te be prettier.
+The timeslider is already in the HTML file, but not working yet
