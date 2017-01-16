@@ -1,0 +1,121 @@
+/*title*/
+h1 {
+    font-size: 1.8em;
+    font-weight: bold;
+    text-align: center;
+    font-family: "Verdana", sans-serif;
+}
+
+/*link to source*/
+h2 {
+    font-size: 0.9em;
+    font-weight: initial;
+    text-align: center;
+    font-family: "Verdana", sans-serif;
+}
+
+
+/*time slider*/
+.axis {
+  fill: gray;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+
+.axis .halo {
+  stroke: gray;
+  stroke-width: 4px;
+  stroke-linecap: round;
+}
+
+.axis .tick text{
+    font-size: 15px;
+    font-family: "Verdana", sans-serif;
+}
+
+.slider .handle path {
+  stroke: white;
+  stroke-width: 6px;
+  stroke-linecap: round;
+  pointer-events: none;
+}
+
+.slider .handle text {
+  fill: gray;
+  text-align: center;
+  font-size: 15px;
+  font-family: "Verdana", sans-serif;
+}
+
+.slider-svg {
+    margin: auto;
+}
+
+/*worldmap*/
+#worldmap {
+    position: relative; 
+    width: 1000px; 
+    height: 500px;
+    margin: auto;
+}
+
+/*space between legend blocks*/
+.datamaps-legend dd {
+    margin-right: 15px;
+}
+
+/*location of legend*/
+.datamaps-legend {
+    left: 325px;
+    top: 0;
+}
+
+.hovertable {
+    width:200px;
+}
+
+/*other two visualisations*/
+.container2 {
+    position: relative; 
+    width: 1000px; 
+    height: 500px;
+    margin: auto;
+}
+
+#piechart {
+    position: relative; 
+    float: left;
+    width: 500px; 
+    height: 500px;
+    margin: auto;
+}
+
+.piechart-vis {
+    width: 400px;
+    height: 300px;
+    bottom: 0px;
+}
+
+.piechart-vis .piechart-title {
+    font-size: 0.8em;
+    font-weight: initial;
+    font-family: "Verdana", sans-serif;
+}
+
+.arc .numbers {
+    font-size: 0.8em;
+    font-weight: initial;
+    font-family: "Verdana", sans-serif;
+}
+
+.legend text {
+    font-size: 0.8em;
+    font-weight: initial;
+    font-family: "Verdana", sans-se
+}
+
+#duallinegraph{
+    width: 600px; 
+    height: 270px;
+}
