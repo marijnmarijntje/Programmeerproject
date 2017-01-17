@@ -39,4 +39,14 @@ The timeslider is already in the HTML file, but not working yet
 
 To do for today:
 - [X] Timeslider [source](http://bl.ocks.org/zanarmstrong/ddff7cd0b1220bc68a58) of used timeslider
-- [ ] Start with the dual graph
+
+To do for tomorrow:
+- [ ] Legend piechart
+- [x] Start with the dual graph
+
+### Day 7 (17-01-2016)
+Today I made the third visualisation and linked it with the worldmap. 
+So the timeslider, worldmap, piechart and linegraph are all working, but a little bit buggy and not pretty.
+
+To do for tomorrow:
+- [ ] Start with the table

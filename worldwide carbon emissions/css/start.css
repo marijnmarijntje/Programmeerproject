@@ -115,7 +115,64 @@ h2 {
     font-family: "Verdana", sans-se
 }
 
+
+
+
 #duallinegraph{
-    width: 600px; 
-    height: 270px;
+    position: relative; 
+    float: left;
+    width: 500px; 
+    height: 500px;
+    margin: auto;
+}
+
+path {
+    stroke-width: 1;
+    fill: none;
+}
+
+.data1 {
+    stroke: steelblue;
+}
+
+.data2 {
+    stroke: orange;
+}
+
+.graph_axis {
+    shape-rendering: crispEdges;
+}
+
+.graph_x.graph_axis line {
+    stroke: lightgrey;
+}
+
+.graph_x.graph_axis .minor {
+    stroke-opacity: .5;
+}
+
+.graph_x.graph_axis path {
+    display: none;
+}
+
+.graph_x.graph_axis text {
+    font-size: 14;
+}
+
+.graph_y.graph_axis line, 
+.graph_y.graph_axis path {
+    fill: none;
+    stroke: #000;
+}
+
+.graph_y.graph_axis text {
+    font-size: 14;
+}
+
+.graph_y.graph_axisRight text {
+    fill: orange;
+}
+
+.graph_y.graph_axisLeft text {
+    fill: steelblue;
 }

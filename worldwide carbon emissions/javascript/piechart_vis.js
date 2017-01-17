@@ -1,4 +1,4 @@
-var draw_piechart = function(year, dataset, countrycode) {
+var draw_piechart = function(year, data, countrycode) {
 
     d3.selectAll(".arc").remove();
     d3.selectAll(".piechart-vis").remove();
@@ -21,8 +21,7 @@ var draw_piechart = function(year, dataset, countrycode) {
         return d.value;
         });
     
-    // data = dataset[year];
-    country = dataset[countrycode].country
+    country = data[countrycode].country
 
     var svg = d3.select("#piechart").append("svg")
         .attr("class", "piechart-vis")
@@ -37,24 +36,12 @@ var draw_piechart = function(year, dataset, countrycode) {
                 .attr("x", -150)
                 .attr("y", 120);
 
-    node = dataset[countrycode]["piechart"];
+    node = data[countrycode]["piechart"];
 
     var g = svg.selectAll(".arc")
             .data(pie(node))
             .enter().append("g")
             .attr("class", "arc")
-            .on("mouseover", function (d) {
-                d3.selectAll("#tooltip")
-                .style("visibility", "visible")
-                .style("left", d3.event.pageX + "px")
-                .style("top", d3.event.pageY + "px")
-                .style("opacity", 1)
-                .select("#value")
-                .text(capitalizeFirstLetter(d.data.seriesname)); })
-            .on("mouseout", function () {
-                // Hide the tooltip
-                d3.selectAll("#tooltip")
-                .style("opacity", 0); });
 
         g.append("path")
             .attr("d", arc)
@@ -68,23 +55,6 @@ var draw_piechart = function(year, dataset, countrycode) {
         .style("text-anchor", "middle")
         .text(function (d) {return parseFloat(d.data.value).toFixed(1); }); 
 
-        // var legend = d3.select("#piechart").append("svg")
-        //   .attr("class", "piechart-legend")
-        //   .selectAll("g")
-        //   .data(data)
-        //   .enter().append("g")
-        //   .attr("transform", function(d) { return "translate(0," + 20 + ")"; });
-
-        svg.append("rect")
-            .attr("width", 18)
-            .attr("height", 18)
-            .style("fill", function(d) { return color(d.data.value); });
-
-        svg.append("text")
-            .attr("x", 24)
-            .attr("y", 9)
-            .attr("dy", ".35em")
-            .text(function(d) { return d.data.seriesname; });
 } 
 
 function capitalizeFirstLetter(string) {
