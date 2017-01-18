@@ -1,0 +1,30 @@
+/*worldmap*/
+#worldmap {
+    position: relative; 
+    width: 1000px; 
+    height: 500px;
+    margin: auto;
+}
+
+/*space between legend blocks*/
+.datamaps-legend dd {
+    margin-right: 15px;
+}
+
+/*location of legend*/
+.datamaps-legend {
+    left: 325px;
+    top: 0;
+}
+
+.hovertable {
+    width:200px;
+}
+
+/*other two visualisations*/
+.container2 {
+    position: relative; 
+    width: 1000px; 
+    height: 500px;
+    margin: auto;
+}

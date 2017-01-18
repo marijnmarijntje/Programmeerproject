@@ -46,7 +46,16 @@ To do for tomorrow:
 
 ### Day 7 (17-01-2016)
 Today I made the third visualisation and linked it with the worldmap. 
+[Source dualgraph](http://bl.ocks.org/benjchristensen/2579619)
 So the timeslider, worldmap, piechart and linegraph are all working, but a little bit buggy and not pretty.
 
 To do for tomorrow:
+- [ ] Make the dual graph more readable 
 - [ ] Start with the table
+
+### Day 8 (18-01-2016)
+I made different css files to have a better overview for the different visualisations.
+The dual graph is finished for the MVP.
+* for next week: make timeslider interactive with dual graph
+
+[Timeslider graph interaction](http://bl.ocks.org/benjchristensen/2657838)

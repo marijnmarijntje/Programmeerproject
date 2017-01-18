@@ -1,0 +1,31 @@
+#piechart {
+    position: relative; 
+    float: left;
+    width: 500px; 
+    height: 500px;
+    margin: auto;
+}
+
+.piechart-vis {
+    width: 400px;
+    height: 300px;
+    bottom: 0px;
+}
+
+.piechart-vis .piechart-title {
+    font-size: 0.8em;
+    font-weight: initial;
+    font-family: "Verdana", sans-serif;
+}
+
+.arc .numbers {
+    font-size: 0.8em;
+    font-weight: initial;
+    font-family: "Verdana", sans-serif;
+}
+
+.legend text {
+    font-size: 0.8em;
+    font-weight: initial;
+    font-family: "Verdana", sans-se
+}

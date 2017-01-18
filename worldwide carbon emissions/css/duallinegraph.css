@@ -1,20 +1,72 @@
-body { font: 12px Arial;}
+.duallinegraph-vis {
+    position: absolute; 
+    float: left;
+    width: 500px; 
+    height: 500px;
+    margin: auto;
+}
 
-path { 
-    stroke: steelblue;
-    stroke-width: 2;
+path {
+    stroke-width: 1;
     fill: none;
 }
 
-.axis path,
-.axis line {
-    fill: none;
-    stroke: grey;
-    stroke-width: 1;
+.graph_axis {
     shape-rendering: crispEdges;
 }
 
-.maximum {
-    stroke-width: 1;
-    stroke: green;
+.graph_x.graph_axis line {
+	display: block;
+    stroke: lightgrey;
 }
+
+.graph_x.graph_axis .minor {
+    stroke-opacity: .5;
+}
+
+.graph_x.graph_axis path {
+	display: none;
+}
+
+.graph_x.graph_axis text {
+    font-size: 14;
+}
+
+.graph_y.graph_axis line, 
+.graph_y.graph_axis path {
+    fill: none;
+    stroke: #000;
+}
+
+.graph_y.graph_axis text {
+    font-size: 14;
+}
+
+.graph_y.graph_axisLeft text {
+    fill: red;
+}
+
+.graph_y.graph_axisRight text {
+    fill: blue;
+}
+
+.data1 {
+    stroke: red;
+}
+
+.data2 {
+    stroke: blue;
+}
+
+.overlay {
+  fill: none;
+  pointer-events: all;
+}
+
+.focus circle {
+  fill: green;
+  stroke: green;
+}
+
+
+
