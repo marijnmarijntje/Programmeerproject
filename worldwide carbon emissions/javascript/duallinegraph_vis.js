@@ -1,14 +1,14 @@
 var getData = function(dataset, countrycode){
-	data = [];
+	dataLine = [];
 
 
 	for (var item in dataset) {
-	 	data.push({ date: parseInt(item), 
+	 	dataLine.push({ date: parseInt(item), 
 	 				co2emissions: parseFloat(dataset[item][countrycode]["co2emissions"]),
 	 				gdp: parseFloat(dataset[item][countrycode]["gdp"]) });
     }
 
-    draw_duallinegraph(data);
+    draw_duallinegraph(dataLine);
 }
 
 var draw_duallinegraph = function(data) {

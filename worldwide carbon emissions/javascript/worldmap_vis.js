@@ -11,7 +11,7 @@ var draw_worldmap = function(dataset, year){
             done: function(datamap) {
                 datamap.svg.selectAll('.datamaps-subunit').on('click', function(geography) {
                     currentcountry = geography.id;
-                    // draw_piechart(year, data, geography.id);
+                    draw_piechart(year, data, geography.id);
                     getData(dataset, geography.id);
                 });
             },

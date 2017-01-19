@@ -1,8 +1,17 @@
+#dualgraph {
+    position: relative; 
+    float: right;
+    width: 500px; 
+    height: 300px;
+    margin: auto;
+}
+
+
 .duallinegraph-vis {
-    position: absolute; 
+    position: relative; 
     float: left;
     width: 500px; 
-    height: 500px;
+    height: 250px;
     margin: auto;
 }
 

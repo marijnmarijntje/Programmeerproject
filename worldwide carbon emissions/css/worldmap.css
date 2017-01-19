@@ -1,9 +1,10 @@
 /*worldmap*/
 #worldmap {
+    display: inline-block;
+    float: left;
+    width: 100%; 
+    height: 600px;
     position: relative; 
-    width: 1000px; 
-    height: 500px;
-    margin: auto;
 }
 
 /*space between legend blocks*/
@@ -21,10 +22,3 @@
     width:200px;
 }
 
-/*other two visualisations*/
-.container2 {
-    position: relative; 
-    width: 1000px; 
-    height: 500px;
-    margin: auto;
-}

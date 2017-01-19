@@ -1,9 +1,14 @@
+body { 
+    font-family: 'Helvetica Neue', Helvetica; 
+    font-weight: 300; 
+    padding: 20px;
+}
+
 /*title*/
 h1 {
     font-size: 1.8em;
     font-weight: bold;
     text-align: center;
-    font-family: "Verdana", sans-serif;
 }
 
 /*link to source*/
@@ -11,9 +16,19 @@ h2 {
     font-size: 0.9em;
     font-weight: initial;
     text-align: center;
-    font-family: "Verdana", sans-serif;
 }
 
+.container1 {
+    height: 600px;
+    width: 1100px;
+    position: relative;
+}
+
+.container2 {
+    height: 500px;
+    width: 1000px;
+    position: relative;
+}
 
 /*time slider*/
 .axis {
@@ -31,7 +46,6 @@ h2 {
 
 .axis .tick text{
     font-size: 15px;
-    font-family: "Verdana", sans-serif;
 }
 
 .slider .handle path {
@@ -45,9 +59,35 @@ h2 {
   fill: gray;
   text-align: center;
   font-size: 15px;
-  font-family: "Verdana", sans-serif;
 }
 
 .slider-svg {
     margin: auto;
+}
+
+/*table settings*/
+#ranktable {
+    position: relative;
+    display: inline-block;
+    float: right;
+    margin-right: 5%;
+    width: 35%;
+    overflow: scroll;
+    height: 300px;
+}
+
+th { 
+  text-align: left; 
+}
+
+th, td { 
+  padding: 0 1em 0.5ex 0;
+}
+
+th.center, td.center { 
+  text-align: center; 
+}
+
+th.num, td.num { 
+  text-align: right; 
 }

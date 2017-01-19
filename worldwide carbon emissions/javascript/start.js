@@ -6,7 +6,7 @@ window.onload = function() {
 
 	currentcountry = "USA";
 	// load json file from localhost
-	d3.json("data/interactive_visu_data.json", function(error, dataset) {       
+	d3.json("data/data.json", function(error, dataset) {       
 	    if (error) throw error;
 
 	    // TIMESLIDER //
@@ -33,8 +33,12 @@ window.onload = function() {
 	    var startValue = timeScale(new Date("2012"));
 	    startingValue = new Date("2012");
 	    year = formatDate(startingValue);
+
+	    // start visualisations
 	    draw_worldmap(dataset, year);
 	    draw_piechart(year, dataset[year], currentcountry);
+	    get_table_data(dataset[year]);
+	    getData(dataset, currentcountry);
 
 	    // defines brush
 	    var brush = d3.svg.brush()
@@ -101,12 +105,11 @@ window.onload = function() {
 	        year = formatDate(value);
 	        draw_worldmap(dataset, year);
 	        draw_piechart(year, dataset[year], currentcountry);
-	        timeMove(year);
-
+	        get_table_data(dataset[year]);
 	      }
 
-	          handle.attr("transform", "translate(" + timeScale(value) + ",0)");
-	          handle.select('text').text(formatDate(value));
+	       	handle.attr("transform", "translate(" + timeScale(value) + ",0)");
+	        handle.select('text').text(formatDate(value));
 	            
 	    }
 

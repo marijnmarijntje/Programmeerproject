@@ -50,7 +50,7 @@ Today I made the third visualisation and linked it with the worldmap.
 So the timeslider, worldmap, piechart and linegraph are all working, but a little bit buggy and not pretty.
 
 To do for tomorrow:
-- [ ] Make the dual graph more readable 
+- [x] Make the dual graph more readable 
 - [ ] Start with the table
 
 ### Day 8 (18-01-2016)
@@ -59,3 +59,11 @@ The dual graph is finished for the MVP.
 * for next week: make timeslider interactive with dual graph
 
 [Timeslider graph interaction](http://bl.ocks.org/benjchristensen/2657838)
+
+### Day 9 (19-01-2017)
+- [x] Make the table (second interactive component)
+[Example1](http://bl.ocks.org/jonahwilliams/cc2de2eedc3896a3a96d)
+[Example2](http://bl.ocks.org/ahmohamed/4c4980f31abdef64e7e2)
+[Example3](http://blockbuilder.org/dhoboy/1ac430a7ca883e7a8c09)
+
+The table needs a search balk and needs to be prettier. This will be done for the deadline tomorrow.

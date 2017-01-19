@@ -1,5 +1,5 @@
 var draw_piechart = function(year, data, countrycode) {
-
+    
     d3.selectAll(".arc").remove();
     d3.selectAll(".piechart-vis").remove();
     d3.selectAll(".piechart-legend").remove();
@@ -17,10 +17,8 @@ var draw_piechart = function(year, data, countrycode) {
 
     var pie = d3.layout.pie()
         .sort(null)
-        .value(function (d) {
-        return d.value;
-        });
-    
+        .value(function (d) { return d.value; });
+  
     country = data[countrycode].country
 
     var svg = d3.select("#piechart").append("svg")

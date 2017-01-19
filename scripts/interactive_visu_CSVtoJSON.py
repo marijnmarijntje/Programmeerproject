@@ -7,7 +7,7 @@ import json
 
 information ={}
 
-json_file = open("../worldwide carbon emissions/data/interactive_visu_data.json", "w")
+json_file = open("../worldwide carbon emissions/data/data.json", "w")
 
 def writeDataJSON(year, countrycode, country, seriesname, value):
         key = ""
@@ -64,7 +64,7 @@ def writeDataJSON(year, countrycode, country, seriesname, value):
                 information[year][countrycode]["piechart"].append(piechart_dict)        
 
 
-with open("../worldwide carbon emissions/data/interactive_visu_data.csv", "rU") as infile:
+with open("../worldwide carbon emissions/data/data.csv", "rU") as infile:
         reader = csv.reader(infile)
         next(infile)
         years = [1960,1961,1962,1963,1964,1965,1966,1967,1968,1969,1970,1971,1972,1973,
