@@ -4,7 +4,7 @@ var draw_piechart = function(year, data, countrycode) {
     d3.selectAll(".piechart-vis").remove();
     d3.selectAll(".piechart-legend").remove();
 
-    var width = 400,
+    var width = 300,
         height = 200,
         radius = Math.min(width, height) / 2;
 
@@ -26,13 +26,13 @@ var draw_piechart = function(year, data, countrycode) {
         .attr("width", width)
         .attr("height", height)
         .append("g")
-        .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
-
-        svg.append("text")
-            .text(function(d) { return "CO2 emission sources of " + country + " in " + year; })
-                .attr("class", "piechart-title")
-                .attr("x", -150)
-                .attr("y", 120);
+        .attr("transform", "translate(" + width / 2 + "," + height / 1.5 + 10 + ")");
+      
+    var title = d3.select(".piechart-vis").append("text")
+        .attr("class", "piechart-title")
+        .attr("x", 35)
+        .attr("y", 35)
+        .text(function(d) { return "CO2 emission sources of " + country + " in " + year; });
 
     node = data[countrycode]["piechart"];
 

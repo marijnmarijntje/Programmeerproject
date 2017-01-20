@@ -3,19 +3,21 @@
     display: inline-block;
     float: left;
     width: 100%; 
-    height: 600px;
+    height: 300px;
+    overflow: visible;
     position: relative; 
 }
 
 /*space between legend blocks*/
 .datamaps-legend dd {
-    margin-right: 15px;
+    float: right;
 }
 
 /*location of legend*/
 .datamaps-legend {
-    left: 325px;
-    top: 0;
+	position: absolute;
+    top: 95%;
+    margin-left: 200px;
 }
 
 .hovertable {

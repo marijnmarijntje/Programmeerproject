@@ -17,11 +17,11 @@ window.onload = function() {
 	    var margin = {
 	        top: 50,
 	        right: 50,
-	        bottom: 50,
+	        bottom: 20,
 	        left: 50
 	      },
-	      width = 960 - margin.left - margin.right,
-	      height = 130 - margin.bottom - margin.top;
+	      width = 623 - margin.left - margin.right,
+	      height = 70 - margin.bottom - margin.top;
 
 	    // scale function
 	    var timeScale = d3.time.scale()

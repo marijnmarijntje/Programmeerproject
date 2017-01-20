@@ -2,6 +2,8 @@
 ## Data visualisatie voor de minor programmeren
 ## Door Marijn Gulpen 09-07-2017
 
+### OPEN bootstrap1.html
+
 ### CO2 uitstoot
 
 De data visualisatie van dit project zal informatie verstrekken over de CO2 emissies over de hele wereld. De gebruiker komt dingen te weten per land maar ook zal er een algemeen beeld worden geschetst. Dit zal door middel van een wereldkaart en verschillende soorten grafieken gevisualiseerd worden. 

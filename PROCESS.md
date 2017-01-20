@@ -67,3 +67,10 @@ The dual graph is finished for the MVP.
 [Example3](http://blockbuilder.org/dhoboy/1ac430a7ca883e7a8c09)
 
 The table needs a search balk and needs to be prettier. This will be done for the deadline tomorrow.
+
+### Day 10 (20-01-2017)
+Today I finished a alpha version in which all three visualisations are working. However not pretty enough.
+Also the timeslider works (*one iteractive component*).
+The second component is the table, which is not interactive yet. Since it needs to light up the country if you hover over the name in the table.
+For the beta version all this needs to be done and maybe at an extra interactive component to the line graph so the user can switch between GDP and another variable (not yet decided).
+**IMPORTANT** To open the page the HTML file: bootstrap1.html needs to be opened.
