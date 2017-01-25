@@ -9,9 +9,9 @@ var draw_worldmap = function(dataset, year){
         element: document.getElementById("worldmap"),
 
             done: function(datamap) {
-                datamap.svg.selectAll('.datamaps-subunit').on('click', function(geography) {
+                datamap.svg.selectAll(".datamaps-subunit").on("click", function(geography) {
                     currentcountry = geography.id;
-                    draw_piechart(year, data, geography.id);
+                    draw_donutchart(year, data, geography.id);
                     getData(dataset, geography.id);
                 });
             },
@@ -19,9 +19,9 @@ var draw_worldmap = function(dataset, year){
             // if mouse over show more information about that country
             geographyConfig: {
                 popupTemplate: function(geography, data) {
-                    if ( !data ) return '<div class="hoverinfo"><strong>' + '<table class="hovertable"><tr><td>No data for this country!</td></tr></table>' + '</div>'; 
-                    if (data.co2emissions == "nd") return '<div class="hoverinfo"><strong>' + '<table class="hovertable"><tr><td>Country:</td><td>'+ data.country +'</td></tr><tr><td>Emissions:</td><td>' + "No Data" + '</td></tr></table>' + ' </div>';
-                    return '<div class="hoverinfo"><strong>' + '<table class="hovertable"><tr><td>Country:</td><td>'+ data.country +'</td></tr><tr><td>Emissions:</td><td>' + parseFloat(data.co2emissions).toFixed(2) + '</td></tr></table>' + ' </div>';
+                    if ( !data ) return '<div class="hoverinfo"><strong>' + '<table class="hovertable"><tr><td>No data for this country!</td></tr></table></div>'; 
+                    if (data.co2emissions == "nd") return '<div class="hoverinfo"><strong>' + '<table class="hovertable"><tr><td>Country:</td><td>"+ data.country +"</td></tr><tr><td>Emissions:</td><td>" + "No Data" + "</td></tr></table>' + '</div>';
+                    return '<div class="hoverinfo"><strong>' + '<table class="hovertable"><tr><td>Country:</td><td>'+ data.country +'</td></tr><tr><td>Emissions:</td><td>' + data.co2emissions + '</td></tr></table></div>';
                 },
             },
 
@@ -29,11 +29,11 @@ var draw_worldmap = function(dataset, year){
             fills: {
                 defaultFill: "#969696",
                 noData: "#969696",
-                low: '#ffe5bc',
-                medLow: '#fdcc8a',
-                medium: '#fc8d59',
-                medHigh: '#e34a33',
-                high: '#b30000'
+                low: "#ffe5bc",
+                medLow: "#fdcc8a",
+                medium: "#fc8d59",
+                medHigh: "#e34a33",
+                high: "#b30000"
             },
 
             // dataset used for coloring and hovering 

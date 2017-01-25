@@ -18,20 +18,21 @@ h2 {
     text-align: center;
 }
 
-/*.container1 {
-    height: 600px;
-    width: 1100px;
+#sub {
+    height: 0;
+    line-height: 1;
+    vertical-align: baseline;
+    vertical-align: bottom;
     position: relative;
+
 }
 
-.container2 {
-    height: 500px;
-    width: 1000px;
-    position: relative;
-}*/
+sub {
+top: .5ex;
+}
 
 #time-slider {
-  height: 90px;
+  height: 150px;
 }
 
 /*time slider*/
@@ -69,6 +70,10 @@ h2 {
     margin: auto;
 }
 
+.slider-svg g{
+    top: 10px;
+}
+
 #myInput {
     background-image: url('../images/searchicon.png'); /* Add a search icon to input */
     background-position: 6px 12px; /* Position the search icon */
@@ -82,25 +87,11 @@ h2 {
 
 /*table settings*/
 #ranktable {
-    overflow: scroll;
-    height: 300px;
+    overflow-y: scroll;
+    height: 400px;
 }
 
 th, td { 
   text-align: left; 
   padding: 0 1em 0.5ex 0;
 }
-
-
-/*th, td { 
-  padding: 0 1em 0.5ex 0;
-}*/
-
-/*th.center, td.center { 
-  text-align: center; 
-}*/
-/*
-th.num, td.num { 
-  text-align: right; 
-}
-*/

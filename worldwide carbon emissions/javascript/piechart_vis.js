@@ -2,10 +2,10 @@ var draw_piechart = function(year, data, countrycode) {
     
     d3.selectAll(".arc").remove();
     d3.selectAll(".piechart-vis").remove();
-    d3.selectAll(".piechart-legend").remove();
+    // d3.selectAll(".piechart-legend").remove();
 
-    var width = 300,
-        height = 200,
+    var width = 280,
+        height = 280,
         radius = Math.min(width, height) / 2;
 
     var color = d3.scale.ordinal()
@@ -19,7 +19,7 @@ var draw_piechart = function(year, data, countrycode) {
         .sort(null)
         .value(function (d) { return d.value; });
   
-    country = data[countrycode].country
+    country = data[countrycode].country;
 
     var svg = d3.select("#piechart").append("svg")
         .attr("class", "piechart-vis")
@@ -35,11 +35,24 @@ var draw_piechart = function(year, data, countrycode) {
         .text(function(d) { return "CO2 emission sources of " + country + " in " + year; });
 
     node = data[countrycode]["piechart"];
-
+    console.log(data);
+    console.log(node);
     var g = svg.selectAll(".arc")
             .data(pie(node))
             .enter().append("g")
             .attr("class", "arc")
+            .on("mouseover", function (d) {
+                d3.selectAll("#tooltip")
+                .style("visibility", "visible")
+                .style("left", d3.event.pageX + "px")
+                .style("top", d3.event.pageY + "px")
+                .style("opacity", 1)
+                .select("#value")
+                .text(capitalizeFirstLetter(d.data.seriesname)); })
+            .on("mouseout", function () {
+                // Hide the tooltip
+                d3.selectAll("#tooltip")
+                .style("opacity", 0); });
 
         g.append("path")
             .attr("d", arc)

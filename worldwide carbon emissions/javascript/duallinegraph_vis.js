@@ -3,16 +3,18 @@ var getData = function(dataset, countrycode){
 
 
 	for (var item in dataset) {
-	 	dataLine.push({ date: parseInt(item), 
-	 				co2emissions: parseFloat(dataset[item][countrycode]["co2emissions"]),
-	 				gdp: parseFloat(dataset[item][countrycode]["gdp"]) });
+		if (dataset[item][countrycode]["gdp"] != "nd" && dataset[item][countrycode]["co2emissions"] != "nd"){
+		 	dataLine.push({ date: parseInt(item), 
+		 				co2emissions: parseFloat(dataset[item][countrycode]["co2emissions"]),
+		 				gdp: parseFloat(dataset[item][countrycode]["gdp"]) });
+		
+	 	}
     }
 
     draw_duallinegraph(dataLine);
 }
 
 var draw_duallinegraph = function(data) {
-
 	d3.selectAll(".dualgraph-vis").remove();
 
 	var margin = {top: 30, right: 80, bottom: 30, left: 80},
@@ -29,10 +31,12 @@ var draw_duallinegraph = function(data) {
 	var y2 = d3.scale.linear().domain([0, d3.max(data, function(d) { return Math.max(d.gdp); })]).range([height, 0]);
 
 	var line1 = d3.svg.line()
+		.interpolate("linear") 
 	    .x(function(d, i) { return x(d.date); })
 	    .y(function(d) { return y1(d.co2emissions); });
 
 	var line2 = d3.svg.line()
+		.interpolate("linear") 
 	    .x(function(d, i) { return x(d.date); })
 	    .y(function(d) { return y2(d.gdp); });
 
@@ -70,12 +74,39 @@ var draw_duallinegraph = function(data) {
 	      .attr("transform", "rotate(-90)")
 	      .attr("y", -13)
 	      .attr("dy", ".71em")
-	      .style("text-anchor", "end")
-	      .text("GDP");
- 
-	svg.append("path").attr("d", line1(data)).attr("class", "data1");
-  	
-  	svg.append("path").attr("d", line2(data)).attr("class", "data2");
+	      .style("text-anchor", "end");
+
+	var path = svg.append("path")
+      .attr("d", line1(data))
+      .attr("stroke", "blue")
+      .attr("stroke-width", "2")
+      .attr("fill", "none");
+
+    var totalLength = path.node().getTotalLength();
+
+    path
+      .attr("stroke-dasharray", totalLength + " " + totalLength)
+      .attr("stroke-dashoffset", totalLength)
+      .transition()
+        .duration(1000)
+        .ease("linear")
+        .attr("stroke-dashoffset", 0);
+
+   	var path = svg.append("path")
+      .attr("d", line2(data))
+      .attr("stroke", "red")
+      .attr("stroke-width", "2")
+      .attr("fill", "none");
+
+    var totalLength = path.node().getTotalLength();
+
+    path
+      .attr("stroke-dasharray", totalLength + " " + totalLength)
+      .attr("stroke-dashoffset", totalLength)
+      .transition()
+        .duration(1000)
+        .ease("linear")
+        .attr("stroke-dashoffset", 0);
 
   	// HOVER
   	var focus = svg.append("g")

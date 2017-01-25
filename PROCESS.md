@@ -74,3 +74,15 @@ Also the timeslider works (*one iteractive component*).
 The second component is the table, which is not interactive yet. Since it needs to light up the country if you hover over the name in the table.
 For the beta version all this needs to be done and maybe at an extra interactive component to the line graph so the user can switch between GDP and another variable (not yet decided).
 **IMPORTANT** To open the page the HTML file: bootstrap1.html needs to be opened.
+
+## Week 3
+
+### Day 11 (23-01-2017)
+- [ ] Donutchart instead of piechart. [example](http://bl.ocks.org/juan-cb/1984c7f2b446fffeedde)
+ 		* Example can be used also for a select button
+ 		* [Other example](http://jsfiddle.net/kerplunk/Q3dhh/)
+
+### Day 12 (23-01-2017)
+[Example donutchart](http://www.adeveloperdiary.com/d3-js/create-3d-donut-chart-using-d3-js/)
+I finished the donutchart(slices are lighting up when you hover hover and also the specific text in the legend will get bold while hover over.)
+The table is interactive with the map. For tomorrow I want to make the table interactive with the other two visualisations.

@@ -1,16 +1,17 @@
 var get_table_data = function(dataset) {
-	var tableData = [];
+	var interData = [];
+
 
 	for (var country in dataset) {
-	 	tableData.push({ Country: dataset[country]["country"],
+	 	interData.push({ countrycode: dataset[country]["code"],
+	 				Country: dataset[country]["country"],
 	 				CO2emissions: parseFloat(dataset[country]["co2emissions"]),
 	 				GDP: parseFloat(dataset[country]["gdp"]) });
     }
-
-   	draw_table(tableData);
+   	draw_table(interData, dataset);
 }
 
-var draw_table = function(data) {
+var draw_table = function(interData, dataset) {
 
 	d3.selectAll("table").remove();
 
@@ -19,8 +20,8 @@ var draw_table = function(data) {
 		thead = table.append("thead"),
 		tbody = table.append("tbody");
 
-	var columns = Object.keys(data[0])
-		.filter(function(d){ return (d); });
+	var columns = Object.keys(interData[0])
+		.filter(function(d){ if(d != "countrycode") { return (d); }; });
 
 	var header = thead.append("tr")
 		.selectAll("th")
@@ -30,17 +31,35 @@ var draw_table = function(data) {
 			.text(function(d){ return d; })
 
   	var rows = tbody.selectAll("tr")
-		.data(data)
+		.data(interData)
 		.enter()
 		.append("tr")
+		.attr("class", function(d) { return d.countrycode})
 		.on("mouseover", function(d){
 			d3.select(this)
 				.style("background-color", "coral");
+			select_country = "." + d.countrycode;
+           	norm_color = d3.select(select_country).style("fill");
+			countryrow = "." + d.countrycode;
+			d3.select(countryrow)
+				.style("fill", "black");
 		})
 		.on("mouseout", function(d){
 			d3.select(this)
 				.style("background-color","transparent");
+			d3.select(countryrow)
+				.style("fill", norm_color);           
 		});
+
+	// rows
+	// 	.data(dataset)
+	// 	.on("click", function(d){
+	// 		countrycode = "#" + d.countrycode;
+	// 		console.log(countrycode);
+	// 		draw_donutchart(year, data, countrycode);
+ //            getData(dataset, countrycode);
+	// 	})
+
 
 	var cells = rows.selectAll("td")
 		.data(function(row) { return columns.map(function(d, i)

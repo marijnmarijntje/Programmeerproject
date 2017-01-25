@@ -18,6 +18,8 @@ def writeDataJSON(year, countrycode, country, seriesname, value):
                 information[year][countrycode]["piechart"] = []
         if country not in information[year][countrycode]:
                 information[year][countrycode]["country"] = country
+        if countrycode not in information[year][countrycode]:
+                information[year][countrycode]["code"] = countrycode
         if seriesname == "EN.ATM.CO2E.PC": 
                 if "co2emissions" not in information[year][countrycode]:
                         information[year][countrycode]["co2emissions"] = value
@@ -39,27 +41,27 @@ def writeDataJSON(year, countrycode, country, seriesname, value):
                         information[year][countrycode]["gdp"] = value
         if seriesname == "EN.CO2.MANF.ZS":                
                 piechart_dict = {}
-                piechart_dict["seriesname"] = "source1"
+                piechart_dict["seriesname"] = "Manufacturing industries and construction"
                 piechart_dict["value"] = value
                 information[year][countrycode]["piechart"].append(piechart_dict)
         if seriesname == "EN.CO2.OTHX.ZS":                
                 piechart_dict = {}
-                piechart_dict["seriesname"] = "source2"
+                piechart_dict["seriesname"] = "Other sectors"
                 piechart_dict["value"] = value
                 information[year][countrycode]["piechart"].append(piechart_dict)
         if seriesname == "EN.CO2.TRAN.ZS":                
                 piechart_dict = {}
-                piechart_dict["seriesname"] = "source3"
+                piechart_dict["seriesname"] = "Transport"
                 piechart_dict["value"] = value
                 information[year][countrycode]["piechart"].append(piechart_dict)
         if seriesname == "EN.CO2.ETOT.ZS":                
                 piechart_dict = {}
-                piechart_dict["seriesname"] = "source4"
+                piechart_dict["seriesname"] = "Electricity and heat production"
                 piechart_dict["value"] = value
                 information[year][countrycode]["piechart"].append(piechart_dict)
         if seriesname == "EN.CO2.BLDG.ZS":                
                 piechart_dict = {}
-                piechart_dict["seriesname"] = "source5"
+                piechart_dict["seriesname"] = "Residential buildings and public & commercial services"
                 piechart_dict["value"] = value
                 information[year][countrycode]["piechart"].append(piechart_dict)        
 

@@ -21,7 +21,7 @@ window.onload = function() {
 	        left: 50
 	      },
 	      width = 623 - margin.left - margin.right,
-	      height = 70 - margin.bottom - margin.top;
+	      height = 150 - margin.bottom - margin.top;
 
 	    // scale function
 	    var timeScale = d3.time.scale()
@@ -36,7 +36,7 @@ window.onload = function() {
 
 	    // start visualisations
 	    draw_worldmap(dataset, year);
-	    draw_piechart(year, dataset[year], currentcountry);
+		draw_donutchart(year, dataset[year], currentcountry);
 	    get_table_data(dataset[year]);
 	    getData(dataset, currentcountry);
 
@@ -104,8 +104,9 @@ window.onload = function() {
 	        brush.extent([value, value]);
 	        year = formatDate(value);
 	        draw_worldmap(dataset, year);
-	        draw_piechart(year, dataset[year], currentcountry);
+	        draw_donutchart(year, dataset[year], currentcountry);
 	        get_table_data(dataset[year]);
+
 	      }
 
 	       	handle.attr("transform", "translate(" + timeScale(value) + ",0)");
