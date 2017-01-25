@@ -11,7 +11,7 @@ var getData = function(dataset, countrycode){
 	 	}
     }
 
-    draw_duallinegraph(dataLine);
+    draw_duallinegraph(dataLine)
 }
 
 var draw_duallinegraph = function(data) {
@@ -74,7 +74,8 @@ var draw_duallinegraph = function(data) {
 	      .attr("transform", "rotate(-90)")
 	      .attr("y", -13)
 	      .attr("dy", ".71em")
-	      .style("text-anchor", "end");
+	      .style("text-anchor", "end")
+	      .text("GDP");
 
 	var path = svg.append("path")
       .attr("d", line1(data))
@@ -139,7 +140,18 @@ var draw_duallinegraph = function(data) {
 	      .on("mouseout", function() { focus.style("display", "none"); })
 	      .on("mousemove", mouseMove);
 
+	
+	// svg.append("line")
+ //        .attr("x1", x(year))  
+ //        .attr("y1", 0)
+ //        .attr("x2", x(year))  
+ //        .attr("y2", height - margin.top - margin.bottom)
+ //        .style("stroke-width", 2)
+ //        .style("stroke", "red")
+ //        .style("fill", "none");
+
 	function mouseMove() {
+		// console.log(data);
 	    var x0 = x.invert(d3.mouse(this)[0]),
 	        i = bisectDate(data, x0, 1),
 	        d0 = data[i - 1],
@@ -147,18 +159,20 @@ var draw_duallinegraph = function(data) {
 	        d = x0 - d0.date > d1.date - x0 ? d1 : d0;
 	   	focus.select("circle.circle").attr("transform", "translate(" + x(d.date) + "," + y1(d.co2emissions) + ")");
 	   	focus.select("circle.circle2").attr("transform", "translate(" + x(d.date) + "," + y2(d.gdp) + ")");
-	  	focus.select("text.text").attr("x", 9).attr("dy", 0).text("emissions: " + formatValue(d.co2emissions));
-	  	focus.select("text.text2").attr("x", 9).attr("dy", 15).text("gdp: " + formatValue(d.gdp));
-	}
-
-	// LINE
-	function timeMove(year) {
-		var x0 = x.invert(d3.mouse(this)[0]),
-	     	i = bisectDate(data, x0, 1),
-	        d0 = data[i - 1],
-	        d1 = data[i];
-	        d = x0 - d0.date > d1.date - x0 ? d1 : d0;
-	    focus.attr("transform", "translate(" + x(d.date) + ")");
+	  	focus.select("text.text").attr("x", 9).attr("dy", 0).text("COEmissions: " + formatValue(d.co2emissions));
+	  	focus.select("text.text2").attr("x", 9).attr("dy", 15).text("GDP: " + formatValue(d.gdp));
 	}
 }
+
+// function timeMove(year) {
+
+// 	d3.select(".svg-slider").append("line")
+//         .attr("x1", x(year))  
+//         .attr("y1", 0)
+//         .attr("x2", x(year))  
+//         .attr("y2", height - margin.top - margin.bottom)
+//         .style("stroke-width", 2)
+//         .style("stroke", "red")
+//         .style("fill", "none");	
+// }
 

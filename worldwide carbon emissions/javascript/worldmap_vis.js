@@ -16,6 +16,7 @@ var draw_worldmap = function(dataset, year){
                 });
             },
 
+         
             // if mouse over show more information about that country
             geographyConfig: {
                 popupTemplate: function(geography, data) {
@@ -23,6 +24,7 @@ var draw_worldmap = function(dataset, year){
                     if (data.co2emissions == "nd") return '<div class="hoverinfo"><strong>' + '<table class="hovertable"><tr><td>Country:</td><td>"+ data.country +"</td></tr><tr><td>Emissions:</td><td>" + "No Data" + "</td></tr></table>' + '</div>';
                     return '<div class="hoverinfo"><strong>' + '<table class="hovertable"><tr><td>Country:</td><td>'+ data.country +'</td></tr><tr><td>Emissions:</td><td>' + data.co2emissions + '</td></tr></table></div>';
                 },
+                highlightFillColor: "#8e7216"
             },
 
             // colorchoices for the different catogories

@@ -1,12 +1,14 @@
 // Onloadfile
-
+var orgData;
 var currentcountry;
+var xline; 
 
 window.onload = function() {
 
 	currentcountry = "USA";
 	// load json file from localhost
-	d3.json("data/data.json", function(error, dataset) {       
+	d3.json("data/data.json", function(error, dataset) {   
+		orgData = dataset;    
 	    if (error) throw error;
 
 	    // TIMESLIDER //
@@ -37,8 +39,9 @@ window.onload = function() {
 	    // start visualisations
 	    draw_worldmap(dataset, year);
 		draw_donutchart(year, dataset[year], currentcountry);
-	    get_table_data(dataset[year]);
+	    get_table_data(dataset[year], year);
 	    getData(dataset, currentcountry);
+	    // timeMove(year);
 
 	    // defines brush
 	    var brush = d3.svg.brush()
@@ -91,6 +94,7 @@ window.onload = function() {
 
 	    handle.append('text')
 	      .text(startingValue)
+	      .attr("class", "slideryear")
 	      .attr("transform", "translate(" + (-18) + " ," + (height / 2 - 25) + ")");
 
 	    slider
@@ -105,8 +109,7 @@ window.onload = function() {
 	        year = formatDate(value);
 	        draw_worldmap(dataset, year);
 	        draw_donutchart(year, dataset[year], currentcountry);
-	        get_table_data(dataset[year]);
-
+	        get_table_data(dataset[year], year);
 	      }
 
 	       	handle.attr("transform", "translate(" + timeScale(value) + ",0)");

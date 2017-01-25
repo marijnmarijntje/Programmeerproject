@@ -3,6 +3,10 @@ var draw_donutchart = function(year, data, countrycode) {
     d3.selectAll(".svgdonut").remove();
     d3.selectAll(".svgg").remove();
     
+    console.log(year);
+    console.log(data);
+    console.log(countrycode);
+    
     var svg = d3.select("#donutchart")
     	.append("svg")
         .attr("class", "svgdonut")
@@ -40,6 +44,7 @@ var draw_donutchart = function(year, data, countrycode) {
 
     var div = d3.select("#donutchart").append("div").attr("class", "toolTip");
     node = data[countrycode]["piechart"];
+
 
     /* ------- PIE SLICES -------*/
     var slice = svg.select(".slices").selectAll("path.slice")

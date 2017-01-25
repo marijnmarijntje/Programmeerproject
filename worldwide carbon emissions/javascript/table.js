@@ -1,37 +1,66 @@
-var get_table_data = function(dataset) {
-	var interData = [];
-
-
+var get_table_data = function(dataset, donutyear) {
+	var allData = [];
+	var tableData = [];
+	var noData = []; 
 	for (var country in dataset) {
-	 	interData.push({ countrycode: dataset[country]["code"],
-	 				Country: dataset[country]["country"],
-	 				CO2emissions: parseFloat(dataset[country]["co2emissions"]),
-	 				GDP: parseFloat(dataset[country]["gdp"]) });
+		if (dataset[country]["co2emissions"] != "nd") {
+		 	tableData.push({ countrycode: dataset[country]["code"],
+		 					Country: dataset[country]["country"],
+		 					CO2emissions: parseFloat(dataset[country]["co2emissions"])
+		 	});
+	 	}
+	 	else {
+	 		noData.push({ countrycode: dataset[country]["code"],
+		 					Country: dataset[country]["country"],
+		 					CO2emissions: "No Data"
+		 	});
+	 	}
     }
-   	draw_table(interData, dataset);
+
+    var numranking = tableData.sort(function(a, b) { return a.CO2emissions < b.CO2emissions ? 1 : -1; })
+                .slice(0, tableData.length);
+
+    var alphranking = noData.sort(function(a, b) {return a.Country > b.Country ? 1 : -1 })
+    			.slice(0, noData.length);;
+    
+    for (var datapoint in tableData) {
+    	allData.push(tableData[datapoint]);
+    }
+    for (var datapoint in noData) {
+    	allData.push(noData[datapoint]);
+    }
+    
+    for (var i = 0; i < allData.length; i++) {
+    	allData[i].Ranking = i + 1;
+    }
+
+    draw_table(allData, dataset, donutyear);
 }
 
-var draw_table = function(interData, dataset) {
+var draw_table = function(tableData, dataset, donutyear) {
 
 	d3.selectAll("table").remove();
+	d3.selectAll(".columns").remove();
+
+	var columns = ["Ranking", "Country", "CO2emissions"];
 
 	var table = d3.select("#ranktable")
-		.append("table"),
-		thead = table.append("thead"),
-		tbody = table.append("tbody");
-
-	var columns = Object.keys(interData[0])
-		.filter(function(d){ if(d != "countrycode") { return (d); }; });
+		.append("table");
+	var thead = d3.select("#tablehead")
+		.append("thead");
+	var tbody = d3.select("#tablebody")
+		table.append("tbody");
 
 	var header = thead.append("tr")
 		.selectAll("th")
 		.data(columns)
 		.enter()
 		.append("th")
-			.text(function(d){ return d; })
-
+		.attr("class", "columns")
+		.attr("id", function(d) { return d;});
+  	
   	var rows = tbody.selectAll("tr")
-		.data(interData)
+		.data(tableData)
 		.enter()
 		.append("tr")
 		.attr("class", function(d) { return d.countrycode})
@@ -42,7 +71,11 @@ var draw_table = function(interData, dataset) {
            	norm_color = d3.select(select_country).style("fill");
 			countryrow = "." + d.countrycode;
 			d3.select(countryrow)
-				.style("fill", "black");
+				.style("fill", "#8e7216");
+		})
+		.on("click", function(d){
+			draw_donutchart(donutyear, dataset, d.countrycode);
+			getData(orgData, d.countrycode);
 		})
 		.on("mouseout", function(d){
 			d3.select(this)
@@ -50,15 +83,6 @@ var draw_table = function(interData, dataset) {
 			d3.select(countryrow)
 				.style("fill", norm_color);           
 		});
-
-	// rows
-	// 	.data(dataset)
-	// 	.on("click", function(d){
-	// 		countrycode = "#" + d.countrycode;
-	// 		console.log(countrycode);
-	// 		draw_donutchart(year, data, countrycode);
- //            getData(dataset, countrycode);
-	// 	})
 
 
 	var cells = rows.selectAll("td")
@@ -79,7 +103,7 @@ function myFunction() {
 
   // Loop through all table rows, and hide those who don't match the search query
   for (i = 0; i < tr.length; i++) {
-    td = tr[i].getElementsByTagName("td")[0];
+    td = tr[i].getElementsByTagName("td")[1];
     if (td) {
       if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
         tr[i].style.display = "";
@@ -89,3 +113,4 @@ function myFunction() {
     } 
   }
 }
+

@@ -87,11 +87,41 @@ top: .5ex;
 
 /*table settings*/
 #ranktable {
+  font-size: .9em;
+}
+
+#tablebody {
     overflow-y: scroll;
     height: 400px;
 }
 
+#Ranking {
+  width: 79px;
+}
+
+#Ranking:before {
+  content: "Ranking";
+}
+
+#Country {
+  width: 130px;
+}
+
+#Country:before {
+  content: "Country";
+}
+
+#CO2emissions {
+  width: 94px;
+}
+
+#CO2emissions:before {
+  content: "CO2 emissions";
+}
+
 th, td { 
+  width: 303px;
   text-align: left; 
   padding: 0 1em 0.5ex 0;
 }
+

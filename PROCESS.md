@@ -82,7 +82,11 @@ For the beta version all this needs to be done and maybe at an extra interactive
  		* Example can be used also for a select button
  		* [Other example](http://jsfiddle.net/kerplunk/Q3dhh/)
 
-### Day 12 (23-01-2017)
+### Day 12 (24-01-2017)
 [Example donutchart](http://www.adeveloperdiary.com/d3-js/create-3d-donut-chart-using-d3-js/)
 I finished the donutchart(slices are lighting up when you hover hover and also the specific text in the legend will get bold while hover over.)
 The table is interactive with the map. For tomorrow I want to make the table interactive with the other two visualisations.
+
+### Day 13 (25-01-2017)
+Finished the last interactive component (table is interactive with click funtion and updates the donutchart and the linegraph).
+The table is also ranked: the countries with the highest emissions first and no datapoints last. No datapoints are ranked in alphabetic order. 

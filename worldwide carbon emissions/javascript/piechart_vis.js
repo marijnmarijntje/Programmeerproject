@@ -2,7 +2,6 @@ var draw_piechart = function(year, data, countrycode) {
     
     d3.selectAll(".arc").remove();
     d3.selectAll(".piechart-vis").remove();
-    // d3.selectAll(".piechart-legend").remove();
 
     var width = 280,
         height = 280,
