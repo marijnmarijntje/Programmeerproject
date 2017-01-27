@@ -2,6 +2,7 @@
 var orgData;
 var currentcountry;
 var xline; 
+var norm_color;
 
 window.onload = function() {
 
@@ -38,10 +39,10 @@ window.onload = function() {
 
 	    // start visualisations
 	    draw_worldmap(dataset, year);
-		draw_donutchart(year, dataset[year], currentcountry);
+		getDataDonut(year, dataset[year], currentcountry);
 	    get_table_data(dataset[year], year);
-	    getData(dataset, currentcountry);
-	    // timeMove(year);
+	    getDataGraph(dataset, currentcountry);
+	    timeMove(year);
 
 	    // defines brush
 	    var brush = d3.svg.brush()
@@ -108,15 +109,15 @@ window.onload = function() {
 	        brush.extent([value, value]);
 	        year = formatDate(value);
 	        draw_worldmap(dataset, year);
-	        draw_donutchart(year, dataset[year], currentcountry);
+	        getDataDonut(year, dataset[year], currentcountry);
 	        get_table_data(dataset[year], year);
+	        timeMove(year);
 	      }
 
 	       	handle.attr("transform", "translate(" + timeScale(value) + ",0)");
 	        handle.select('text').text(formatDate(value));
 	            
 	    }
-
     // close JSON
     });
 // close window.onload

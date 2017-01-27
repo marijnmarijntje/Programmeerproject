@@ -1,15 +1,34 @@
+var getDataDonut = function(year, data, countrycode) {
+    
+    donutData = data[countrycode]["piechart"];
+    country = data[countrycode]["country"];
+    
+    for (var key in donutData) {
+        if (donutData[key]["value"] == "nd") {
+            var noData = true;    
+        }
+    }
+
+    if (noData) {
+        noDataDonut(country);
+    }
+    else {
+        draw_donutchart(year, data, countrycode);
+    }   
+}
+
 var draw_donutchart = function(year, data, countrycode) {
 
-    d3.selectAll(".svgdonut").remove();
+    d3.selectAll(".donut-vis").remove();
     d3.selectAll(".svgg").remove();
     
-    console.log(year);
-    console.log(data);
-    console.log(countrycode);
-    
-    var svg = d3.select("#donutchart")
-    	.append("svg")
-        .attr("class", "svgdonut")
+    var width = 620,
+        height = 300;
+
+    var svg = d3.select("#donutchart").append("svg")
+        .attr("class", "donut-vis")
+        .attr("width", width)
+        .attr("height", height)
     	.append("g")
         .attr("class", "svgg")
 
@@ -22,7 +41,7 @@ var draw_donutchart = function(year, data, countrycode) {
 
     var pie = d3.layout.pie()
     	.value(function(d) {
-    		return d.value;
+        	return d.value;
     	});
 
     var arc = d3.svg.arc()
@@ -38,7 +57,7 @@ var draw_donutchart = function(year, data, countrycode) {
 
     svg.attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
 
-    var colorRange = d3.scale.category20();
+    var colorRange = d3.scale.category10();
     var color = d3.scale.ordinal()
     	.range(colorRange.range());
 
@@ -107,11 +126,27 @@ var draw_donutchart = function(year, data, countrycode) {
     slice.on("mouseout", function(d){
         div.style("display", "none");
         d3.select(this)
-                .style("opacity", 0.6);
+                .style("opacity", 0.7);
          d3.select("#" + d.data.seriesname.substring(0, 4))
                 .style("font-weight", "normal");
         });
 
     slice.exit()
         .remove();
+}
+
+function noDataDonut(country) {
+
+    d3.selectAll(".donut-vis").remove();
+
+    var margin = {top: 20, right: 80, bottom: 10, left: 80},
+    width = 600 - margin.left - margin.right,
+    height = 40 - margin.top - margin.bottom;
+
+    d3.select("#donutchart").append("text")
+        .attr("class", "donut-vis")
+        .attr("width", width + margin.left + margin.right)
+        .attr("height", height + margin.top + margin.bottom)
+        .html(function(d) { return "Not enough data available of " + country + "<br/>" + "to visualize the emission sources"; })
+        .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 }

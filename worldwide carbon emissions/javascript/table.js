@@ -64,24 +64,35 @@ var draw_table = function(tableData, dataset, donutyear) {
 		.enter()
 		.append("tr")
 		.attr("class", function(d) { return d.countrycode})
+		// .attr("id", function(d) {return "hover" + d.countrycode})
 		.on("mouseover", function(d){
 			d3.select(this)
 				.style("background-color", "coral");
 			select_country = "." + d.countrycode;
-           	norm_color = d3.select(select_country).style("fill");
-			countryrow = "." + d.countrycode;
-			d3.select(countryrow)
+           	over_color = d3.select(select_country).style("fill");
+			// countryrow = "." + d.countrycode;
+			d3.select(select_country)
 				.style("fill", "#8e7216");
-		})
-		.on("click", function(d){
-			draw_donutchart(donutyear, dataset, d.countrycode);
-			getData(orgData, d.countrycode);
 		})
 		.on("mouseout", function(d){
 			d3.select(this)
 				.style("background-color","transparent");
-			d3.select(countryrow)
-				.style("fill", norm_color);           
+			d3.select(select_country)
+				.style("fill", over_color);           
+		})
+		.on("click", function(d) {
+			// if (norm_color) {
+			// 	d3.select(click_country).style("fill", norm_color);
+			// }
+			// click_country = "." + d.countrycode;
+			// console.log(click_country);
+   //         	norm_color = d3.select(click_country).style("fill",);
+			// // countryrow = "." + d.countrycode;
+			// d3.select(click_country).style("fill", "#8e7216");
+
+			getDataDonut(donutyear, dataset, d.countrycode);
+			getDataGraph(orgData, d.countrycode);
+			timeMove(year);
 		});
 
 

@@ -11,8 +11,9 @@ var draw_worldmap = function(dataset, year){
             done: function(datamap) {
                 datamap.svg.selectAll(".datamaps-subunit").on("click", function(geography) {
                     currentcountry = geography.id;
-                    draw_donutchart(year, data, geography.id);
-                    getData(dataset, geography.id);
+                    getDataDonut(year, data, geography.id);
+                    getDataGraph(dataset, geography.id);
+                    timeMove(year);
                 });
             },
 
@@ -21,8 +22,8 @@ var draw_worldmap = function(dataset, year){
             geographyConfig: {
                 popupTemplate: function(geography, data) {
                     if ( !data ) return '<div class="hoverinfo"><strong>' + '<table class="hovertable"><tr><td>No data for this country!</td></tr></table></div>'; 
-                    if (data.co2emissions == "nd") return '<div class="hoverinfo"><strong>' + '<table class="hovertable"><tr><td>Country:</td><td>"+ data.country +"</td></tr><tr><td>Emissions:</td><td>" + "No Data" + "</td></tr></table>' + '</div>';
-                    return '<div class="hoverinfo"><strong>' + '<table class="hovertable"><tr><td>Country:</td><td>'+ data.country +'</td></tr><tr><td>Emissions:</td><td>' + data.co2emissions + '</td></tr></table></div>';
+                    if (data.co2emissions == "nd") { return '<div class="hoverinfo"><strong>' + '<table class="hovertable"><tr><td>Country:</td><td>' + data.country + '</td></tr><tr><td>Emissions:</td><td>' + "No Data" + '</td></tr></table>' + '</div>'};
+                    return '<div class="hoverinfo"><strong>' + '<table class="hovertable"><tr><td>Country:</td><td>' + data.country + '</td></tr><tr><td>Emissions:</td><td>' + data.co2emissions + '</td></tr></table></div>';
                 },
                 highlightFillColor: "#8e7216"
             },

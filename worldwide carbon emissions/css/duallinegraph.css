@@ -77,5 +77,10 @@ path {
   stroke: green;
 }
 
+.timeline {
+  position: absolute;  
+}
 
-
+.textemissions {
+    font-color: blue;
+}
