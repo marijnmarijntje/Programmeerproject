@@ -113,8 +113,8 @@ var draw_donutchart = function(year, data, countrycode) {
         .attr("id", function(d) {return d.seriesname});
         
     slice.on("mousemove", function(d){
-        div.style("left", 90+"px");
-        div.style("top", 120+"px");
+        div.style("left", 105+"px");
+        div.style("top", 155+"px");
         div.style("display", "inline-block");
         div.html(d.data.value +"%");
         d3.select(this)

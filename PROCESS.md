@@ -90,3 +90,14 @@ The table is interactive with the map. For tomorrow I want to make the table int
 ### Day 13 (25-01-2017)
 Finished the last interactive component (table is interactive with click funtion and updates the donutchart and the linegraph).
 The table is also ranked: the countries with the highest emissions first and no datapoints last. No datapoints are ranked in alphabetic order. 
+
+### Day 14 (26-01-2017)
+* Added a vertical line in the graph located on the current year, so for the default the line is shown at 2012.
+* I made two 'no data screens' for the donut chart and duallinggraph as well. When you click on a country, if there is not enough data or no data at all. This also fixed the bugs for countries without any data. 
+
+### Day 15 (27-01-2017)
+* There is a counter for no data points 
+
+### Weekend (29-01-2017)
+Made a new homepage with bootstrap. Timeslider is now located under the worldmap and table and above the other two visualisations so that its more in the center of the page.
+--> file is called: homepage.html

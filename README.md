@@ -2,7 +2,7 @@
 ## Data visualisatie voor de minor programmeren
 ## Door Marijn Gulpen 09-07-2017
 
-### OPEN bootstrap1.html
+### *OPEN homepage.html*
 
 ### CO2 uitstoot
 

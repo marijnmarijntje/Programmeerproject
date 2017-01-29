@@ -19,11 +19,11 @@ window.onload = function() {
 	    // parameters
 	    var margin = {
 	        top: 50,
-	        right: 50,
+	        right: 85,
 	        bottom: 20,
-	        left: 50
+	        left: 85
 	      },
-	      width = 623 - margin.left - margin.right,
+	      width = 1100 - margin.left - margin.right,
 	      height = 150 - margin.bottom - margin.top;
 
 	    // scale function
