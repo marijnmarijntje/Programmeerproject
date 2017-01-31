@@ -45,18 +45,22 @@ var draw_table = function(tableData, dataset, donutyear) {
 	var columns = ["Ranking", "Country", "CO2emissions"];
 
 	var table = d3.select("#ranktable")
-		.append("table");
-	var thead = d3.select("#tablehead")
-		.append("thead");
-	var tbody = d3.select("#tablebody")
-		table.append("tbody");
+		.append("table")
+		.attr("class", "table table-condensed"),
+	thead = table.append("thead"),
+	tbody = table.append("tbody")
+			.attr("class", "tablecontent");
+	// var thead = d3.select("#tablehead")
+	// 	.append("thead");
+	// var tbody = d3.select("#tablebody")
+	// 	table.append("tbody");
 
 	var header = thead.append("tr")
 		.selectAll("th")
 		.data(columns)
 		.enter()
 		.append("th")
-		.attr("class", "columns")
+		// .attr("class", "columns")
 		.attr("id", function(d) { return d;});
   	
   	var rows = tbody.selectAll("tr")

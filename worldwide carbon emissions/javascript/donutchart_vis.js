@@ -57,12 +57,15 @@ var draw_donutchart = function(year, data, countrycode) {
 
     svg.attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
 
-    var colorRange = d3.scale.category10();
-    var color = d3.scale.ordinal()
-    	.range(colorRange.range());
+    // var colorRange = d3.scale.category10();
+var color = d3.scale.ordinal()
+    .range(["#98abc5", "#6b486b", "#a05d56", "#d0743c", "#ff8c00"]); //, , "#8a89a6", "#7b6888"
 
     var div = d3.select("#donutchart").append("div").attr("class", "toolTip");
     node = data[countrycode]["piechart"];
+
+    d3.select("#title2")
+        .html(function(d) { return "CO2 emissions, by source - " + '<tspan style="font-weight:bold">' + country + '</tspan>' + " - " + '<tspan style="font-weight:bold">' + year + '</tspan>'});
 
 
     /* ------- PIE SLICES -------*/
@@ -143,10 +146,9 @@ function noDataDonut(country) {
     width = 600 - margin.left - margin.right,
     height = 40 - margin.top - margin.bottom;
 
-    d3.select("#donutchart").append("text")
-        .attr("class", "donut-vis")
+    d3.select("#title2")
         .attr("width", width + margin.left + margin.right)
         .attr("height", height + margin.top + margin.bottom)
-        .html(function(d) { return "Not enough data available of " + country + "<br/>" + "to visualize the emission sources"; })
+        .html(function(d) { return "No data available to visualize the CO2 emissions, by sources - " + '<tspan style="font-weight:bold">' + country + '</tspan>' })
         .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 }

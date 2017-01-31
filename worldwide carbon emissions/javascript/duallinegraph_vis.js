@@ -1,13 +1,10 @@
 var getDataGraph = function(dataset, countrycode){
 	dataLine = [];
 	years = [];
-	allYears = [];
-	var counter = 0;
 
 	for (var item in dataset) {
-		allYears.push(parseInt(item));
 		country = dataset[item][countrycode]["country"];
-		if (dataset[item][countrycode]["co2emissions"] != "nd" && dataset[item][countrycode]["gdp"] != "nd"){
+		if (dataset[item][countrycode]["co2emissions"] != "nd" && dataset[item][countrycode]["gdp"] != "nd") {
 		 	dataLine.push({ date: parseInt(item), 
 		 				co2emissions: parseFloat(dataset[item][countrycode]["co2emissions"]),
 		 				gdp: parseFloat(dataset[item][countrycode]["gdp"]) });	
@@ -19,27 +16,20 @@ var getDataGraph = function(dataset, countrycode){
     	var noData = true;
     }
 
-    // var totalYears = years[years.length - 1] - years[0]; 
-    console.log(allYears);
-    // if data is missing two times (not in a row) than graph can not be drawn
-    for (var i = 0; i < years.length; i++) {
-    	if (years[i] - years[i + 1] != -1) {
-    		counter++;
-    	}
-    	if (counter >= 2) {
+    for (var i = 0; i < years.length - 1; i++) {
+    	if (years[i] - years[i + 1] < -3) 
     		noData = true;
-       	}
     }
 
     if (!noData) {
-    	draw_duallinegraph(dataLine)
+    	draw_duallinegraph(dataLine, country)
 	}
 	else {
     	noDataGraph(country);
 	}
 }
 
-var draw_duallinegraph = function(data) {
+var draw_duallinegraph = function(data, country) {
 	
 	d3.selectAll(".dualgraph-vis").remove();
 
@@ -50,6 +40,9 @@ var draw_duallinegraph = function(data) {
     var parseDate = d3.time.format("%Y").parse,
 	    bisectDate = d3.bisector((function(d) { return d.date; })).left;
 	
+	var max_year = d3.max(data, function(d) { return d.date; });
+	var min_year = d3.min(data, function(d) { return d.date; });
+
 	xLine = d3.scale.linear().domain(d3.extent(data, function(d) { return d.date; })).range([0, width]);
 	var y1 = d3.scale.linear().domain([0, d3.max(data, function(d) { return Math.max(d.co2emissions); })]).range([height, 0]); 
 	var y2 = d3.scale.linear().domain([0, d3.max(data, function(d) { return Math.max(d.gdp); })]).range([height, 0]);
@@ -104,11 +97,11 @@ var draw_duallinegraph = function(data) {
 
 	var path = svg.append("path")
       .attr("d", line1(data))
-      .attr("stroke", "blue")
-      .attr("stroke-width", "2")
+      .attr("stroke", "steelblue")
+      .attr("stroke-width", "3")
       .attr("fill", "none");
 
-    var totalLength = path.node().getTotalLength();
+   	var totalLength = path.node().getTotalLength();
 
     path
       .attr("stroke-dasharray", totalLength + " " + totalLength)
@@ -120,8 +113,8 @@ var draw_duallinegraph = function(data) {
 
    	var path = svg.append("path")
       .attr("d", line2(data))
-      .attr("stroke", "red")
-      .attr("stroke-width", "2")
+      .attr("stroke", "darkred")
+      .attr("stroke-width", "3")
       .attr("fill", "none");
 
     var totalLength = path.node().getTotalLength();
@@ -134,6 +127,9 @@ var draw_duallinegraph = function(data) {
         .ease("linear")
         .attr("stroke-dashoffset", 0);
 
+    d3.select("#title3")
+        .html(function(d) { return "CO2 emissions and GDP over the years - " + '<tspan style="font-weight:bold">' + country + '</tspan>' + " - " + '<tspan style="font-weight:bold">' + min_year + '</tspan>' + " till " + '<tspan style="font-weight:bold">' + max_year + '</tspan>'});
+
   	// HOVER
   	var focus = svg.append("g")
       .attr("class", "focus")
@@ -141,11 +137,11 @@ var draw_duallinegraph = function(data) {
 
 	  focus.append("circle")
 	  	  .attr("class", "circle")
-	      .attr("r", 4.5);
+	      .attr("r", 5);
 
 	  focus.append("circle")
 	      .attr("class", "circle2")
-	      .attr("r", 4.5);
+	      .attr("r", 5);
 
 	  focus.append("text")
 	  	  .attr("class", "textyear")
@@ -156,7 +152,6 @@ var draw_duallinegraph = function(data) {
 	  	  .attr("class", "textemissions")
 	      .attr("x", 9)
 	      .attr("dy", ".35em")
-	      .style("color", "red");
 
 	  focus.append("text")
 	  	  .attr("class", "textgdp")
@@ -212,11 +207,10 @@ function noDataGraph() {
     width = 600 - margin.left - margin.right,
     height = 40 - margin.top - margin.bottom;
 
-	d3.select("#dualgraph").append("text")
-		.attr("class", "dualgraph-vis")
+	d3.select("#title3")
 	    .attr("width", width + margin.right)
 	    .attr("height", height + margin.top + margin.bottom)
-	    .html(function(d) { return "Not enough data available of " + country + "<br/> " + "to visualize the CO2 emissions and GDP"; })
+	    .html(function(d) { return "Not enough data available to visualize the CO2 emissions and GDP - " + '<tspan style="font-weight:bold">' + country + '</tspan>' })
 	    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 }
 

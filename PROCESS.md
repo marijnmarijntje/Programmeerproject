@@ -101,3 +101,13 @@ The table is also ranked: the countries with the highest emissions first and no 
 ### Weekend (29-01-2017)
 Made a new homepage with bootstrap. Timeslider is now located under the worldmap and table and above the other two visualisations so that its more in the center of the page.
 --> file is called: homepage.html
+
+## Week 4
+
+### Day 14 
+Did some little things:
+* Fixed bug in worldmap with click function
+* Header of the table is (almost) at the same width as the content
+* Changed the colors of the donutchart and linegraph, so that it is more in line with the worldmap
+* The linegraph is alway from 1960 till 1930, may be awesome if you could change the x-axis with a click on function so that it could be changed to the amount of data.
+* If there are more than 3 datapoints missing (in a row) for the linegraph, the graph will not be made.

@@ -18,41 +18,45 @@
       <h1>Worldwide CO<sub>2</sub> emissions and GDP</h1>
       <h5> Source: <a href="http://databank.worldbank.org/data/reports.aspx?Code=EN.ATM.CO2E.PC&id=af3ce82b&report_name=Popular_indicators&populartype=series&ispopular=y#">The World Bank</a></h5>
     </div>
-    <div class="jumbotron">
-    	<p>Hier kan ik een introductie typen</p>
+    <div class=row>
+    	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+    		<div id="linegraph"></div>
+    	</div>
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <p>Hier kan ik een introductie typen</p>
+      </div>
     </div>
   </div>  
   <div class="container"> 
     <div class="row">
       <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
-        <h4>Row1 Column1 Worldmap</h4>
-     	<div id="worldmap" ></div>
+     	  <div id="worldmap">
+     		<p class="title" id="title1"></p>
+     	  </div>
       </div>
 
       <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-        <h4>Row1 Column2 Table</h4>
-      	<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for country..">
-      	<div id="ranktable">  
-        <div id="tablehead"></div>
-        <div id="tablebody"></div>
+      	<div id="ranktable"> 
+      	<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for country.."> 
       </div> 
     </div>   
 
       <div class="row">
 	    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-	  	  <h4>Row2 Column1 Timeslider</h4>
 	  	  <div id="time-slider"></div>
 	    </div>
       </div>
 
       <div class="row">
-      	<div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
-      	  <h4>Row3 Column1 Donutchart</h4>
-      	    <div id="donutchart"></div>
+      	<div class="col-lg-6 col-md-7 col-sm-12 col-xs-12">
+      	    <div id="donutchart">
+      	    	<p class="title" id="title2"></p>
+      	    </div>
       	</div>
-      	<div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
-      	  <h4>Row3 Column2 Linegraph</h4>
-      	    <div id="dualgraph"></div>
+      	<div class="col-lg-6 col-md-5 col-sm-12 col-xs-12">
+      	    <div id="dualgraph">
+      	    	<p class="title" id="title3"></p>
+      	    </div>
       	</div>    
       </div>
 
@@ -73,6 +77,7 @@
   <script src="http://d3js.org/d3.v3.min.js"></script>
   <script src="http://d3js.org/topojson.v1.min.js"></script>
   <script src="javascript/start.js"></script>
+  <script src="javascript/linegraph.js"></script>
   <script src="javascript/worldmap.js"></script>
   <script src="javascript/worldmap_vis.js"></script>
   <script src="javascript/table.js"></script> 

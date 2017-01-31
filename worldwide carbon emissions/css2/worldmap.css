@@ -1,3 +1,17 @@
+.line { 
+    stroke: steelblue;
+    stroke-width: 2;
+    fill: none;
+}
+
+.axis path,
+.axis line {
+    fill: none;
+    stroke: grey;
+    stroke-width: 1;
+    shape-rendering: crispEdges;
+}
+
 .jumbotron {
     background-color: #D3D3D3;
     color: black;
@@ -6,9 +20,20 @@
 .jumbotron-fluid {
     background-color: #D3D3D3;
 }
+
+.title {
+    font-size: 1.5em;
+    text-align: center;
+}
+
+
 /*worldmap*/
 #worldmap {
-    height: 500px;
+    height: 420px;
+}
+
+#dualgraph {
+  width: 600px;
 }
 
 /*space between legend blocks*/
@@ -19,12 +44,12 @@
 /*location of legend*/
 .datamaps-legend {
 	position: absolute;
-    top: 95%;
-    margin-left: 200px;
+  top: 15%;
+  margin-left: 200px;
 }
 
 .hovertable {
-    width:200px;
+    width: 220px;
 }
 
 /*time slider*/
@@ -38,7 +63,7 @@
 .axis .halo {
   stroke: gray;
   stroke-width: 4px;
-  stroke-linecap: round;
+  stroke-linecap: square;
 }
 
 .axis .tick text{
@@ -48,7 +73,7 @@
 .slider .handle path {
   stroke: white;
   stroke-width: 6px;
-  /*stroke-linecap: round;*/
+  stroke-linecap: square;
   pointer-events: none;
 }
 
@@ -56,10 +81,6 @@
   fill: gray;
   text-align: center;
   font-size: 15px;
-}
-
-.slider-svg {
-    /*margin: auto;*/
 }
 
 .slider-svg g{
@@ -80,15 +101,28 @@
 /*table settings*/
 #ranktable {
   font-size: .9em;
+  width: 350px;
 }
 
-#tablebody {
-    overflow-y: scroll;
-    height: 350px;
+tr {
+  width: 333px;
+  table-layout: fixed;
+}
+
+table table-condensed {
+ height:300px;  
+ width: 350px;           
+}
+
+.tablecontent {
+  overflow-y: scroll;      
+  height: 330px;            
+  width: 350px;
+  position: absolute;
 }
 
 #Ranking {
-  width: 79px;
+  width: 95px;
 }
 
 #Ranking:before {
@@ -104,7 +138,7 @@
 }
 
 #CO2emissions {
-  width: 94px;
+  width: 116px;
 }
 
 #CO2emissions:before {
@@ -170,19 +204,11 @@ path {
 }
 
 .graph_y.graph_axisLeft text {
-    fill: red;
+    fill: darkred;
 }
 
 .graph_y.graph_axisRight text {
-    fill: blue;
-}
-
-.data1 {
-    stroke: red;
-}
-
-.data2 {
-    stroke: blue;
+    fill: steelblue;
 }
 
 .overlay {
@@ -192,13 +218,10 @@ path {
 
 .focus circle {
   fill: green;
-  stroke: green;
+  opacity: 0.5;
 }
 
 .timeline {
   position: absolute;  
-}
-
-.textemissions {
-    font-color: blue;
+  stroke-dasharray: 3, 3;
 }
