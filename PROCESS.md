@@ -111,3 +111,14 @@ Did some little things:
 * Changed the colors of the donutchart and linegraph, so that it is more in line with the worldmap
 * The linegraph is alway from 1960 till 1930, may be awesome if you could change the x-axis with a click on function so that it could be changed to the amount of data.
 * If there are more than 3 datapoints missing (in a row) for the linegraph, the graph will not be made.
+
+
+### Day 15
+* All functions are now capitalized instead of the use of underscores.
+* Finished the linegraph in the introduction
+* Changed some beauty things: circle at timeslider, same graph style for the linegraph as the duallinegraph, all CO2 are now with subscript 2. 
+
+For tomorrow:
+* Write the text on the page
+* Write the report
+* Online with github (index.html!)

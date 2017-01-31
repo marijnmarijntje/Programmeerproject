@@ -1,0 +1,33 @@
+.timeaxis {
+  fill: gray;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+
+.timeaxis .halo {
+  stroke: gray;
+  stroke-width: 4px;
+  stroke-linecap: square;
+}
+
+.timeaxis .tick text{
+  font-size: 15px;
+}
+
+.slider .handle path {
+  stroke: white;
+  stroke-width: 6px;
+  stroke-linecap: square;
+  pointer-events: none;
+}
+
+.slider .handle text {
+  fill: gray;
+  text-align: center;
+  font-size: 15px;
+}
+
+.slider g{
+    top: 10px;
+}

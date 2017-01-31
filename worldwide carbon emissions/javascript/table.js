@@ -1,4 +1,9 @@
-var get_table_data = function(dataset, donutyear) {
+// Name: Marijn Gulpen
+// Student number: 10575243
+// This javascript first transforms the data into the correct format
+// and ranking. After that a table will made with the ranking.
+
+var getTableData = function(dataset, donutyear) {
 	var allData = [];
 	var tableData = [];
 	var noData = []; 
@@ -34,10 +39,10 @@ var get_table_data = function(dataset, donutyear) {
     	allData[i].Ranking = i + 1;
     }
 
-    draw_table(allData, dataset, donutyear);
+    drawTable(allData, dataset, donutyear);
 }
 
-var draw_table = function(tableData, dataset, donutyear) {
+var drawTable = function(tableData, dataset, donutyear) {
 
 	d3.selectAll("table").remove();
 	d3.selectAll(".columns").remove();
@@ -50,17 +55,12 @@ var draw_table = function(tableData, dataset, donutyear) {
 	thead = table.append("thead"),
 	tbody = table.append("tbody")
 			.attr("class", "tablecontent");
-	// var thead = d3.select("#tablehead")
-	// 	.append("thead");
-	// var tbody = d3.select("#tablebody")
-	// 	table.append("tbody");
 
 	var header = thead.append("tr")
 		.selectAll("th")
 		.data(columns)
 		.enter()
 		.append("th")
-		// .attr("class", "columns")
 		.attr("id", function(d) { return d;});
   	
   	var rows = tbody.selectAll("tr")
@@ -68,13 +68,11 @@ var draw_table = function(tableData, dataset, donutyear) {
 		.enter()
 		.append("tr")
 		.attr("class", function(d) { return d.countrycode})
-		// .attr("id", function(d) {return "hover" + d.countrycode})
 		.on("mouseover", function(d){
 			d3.select(this)
 				.style("background-color", "coral");
 			select_country = "." + d.countrycode;
            	over_color = d3.select(select_country).style("fill");
-			// countryrow = "." + d.countrycode;
 			d3.select(select_country)
 				.style("fill", "#8e7216");
 		})
@@ -85,15 +83,6 @@ var draw_table = function(tableData, dataset, donutyear) {
 				.style("fill", over_color);           
 		})
 		.on("click", function(d) {
-			// if (norm_color) {
-			// 	d3.select(click_country).style("fill", norm_color);
-			// }
-			// click_country = "." + d.countrycode;
-			// console.log(click_country);
-   //         	norm_color = d3.select(click_country).style("fill",);
-			// // countryrow = "." + d.countrycode;
-			// d3.select(click_country).style("fill", "#8e7216");
-
 			getDataDonut(donutyear, dataset, d.countrycode);
 			getDataGraph(orgData, d.countrycode);
 			timeMove(year);

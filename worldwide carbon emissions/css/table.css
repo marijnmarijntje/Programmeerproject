@@ -1,0 +1,58 @@
+#myInput {
+    background-image: url('../images/searchicon.png'); 
+    background-position: 6px 12px; 
+    background-repeat: no-repeat; 
+    width: 100%; 
+    font-size: 16px; 
+    padding: 12px 20px 12px 40px; 
+    border: 1px solid #ddd; 
+    margin-bottom: 12px; 
+}
+
+tr {
+  width: 333px;
+  table-layout: fixed;
+}
+
+table table-condensed {
+ height:300px;  
+ width: 350px;           
+}
+
+.tablecontent {
+  overflow-y: scroll;      
+  height: 330px;            
+  width: 350px;
+  position: absolute;
+  cursor: pointer;
+}
+
+#Ranking {
+  width: 95px;
+}
+
+#Ranking:before {
+  content: "Ranking";
+}
+
+#Country {
+  width: 130px;
+}
+
+#Country:before {
+  content: "Country";
+}
+
+#CO2emissions {
+  width: 116px;
+}
+
+#CO2emissions:before {
+  content: "CO2 emissions";
+}
+
+th, td { 
+  width: 303px;
+  text-align: left; 
+  padding: 0 1em 0.5ex 0;
+}

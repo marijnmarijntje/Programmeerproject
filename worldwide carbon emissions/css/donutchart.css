@@ -1,29 +1,3 @@
-#donutchart {
-    position: relative; 
-    float: left;
-    width: 620px; 
-    height: 300px;
-    margin: auto;
-}
-
-path.slice{
-	stroke-width:2px;
-    opacity: 0.7;
-}
-
-polyline{
-	opacity: .3;
-	stroke: black;
-	stroke-width: 2px;
-	fill: none;
-}
-
-.labelValue
-{
-	font-size: 60%;
-	opacity: .5;
-}
-
 .toolTip {
     position: absolute;
     display: none;
@@ -36,6 +10,11 @@ polyline{
     text-align: center;
 }
 
-span {
-  font: 12px sans-serif;
+path.slice{
+    opacity: 0.7;
+}
+
+path {
+    stroke-width: 1;
+    fill: none;
 }

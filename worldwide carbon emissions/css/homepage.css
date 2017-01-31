@@ -1,0 +1,67 @@
+.container {
+  margin-top: 20px;
+  margin-bottom: 50px;
+}
+
+#introduction {
+  border-radius: 25px;
+  background: #F0F0F0;
+}
+
+.introduction {
+  margin: auto;
+  width: 50%;
+}
+
+.line { 
+    stroke: steelblue;
+    stroke-width: 2;
+    fill: none;
+}
+
+.x .title{
+  font-size: 1em;
+  font-weight: bold;
+  text-anchor: end;
+}
+
+#source {
+  bottom: 0;
+  font-size: .8em;
+  position: absolute;
+}
+
+.axis path,
+.axis line {
+    fill: none;
+    stroke: grey;
+    stroke-width: 1;
+    shape-rendering: crispEdges;
+}
+
+#worldmap {
+    height: 420px;
+}
+
+#dualgraph {
+  width: 600px;
+}
+
+#ranktable {
+  font-size: .9em;
+  width: 350px;
+}
+
+.jumbotron {
+    background-color: #D3D3D3;
+    color: black;
+}
+
+.jumbotron-fluid {
+    background-color: #D3D3D3;
+}
+
+.title {
+    font-size: 1.5em;
+    text-align: center;
+}
