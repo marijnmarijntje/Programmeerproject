@@ -10,8 +10,8 @@ var drawWorldmap = function(dataset, year){
     data = dataset[year];
 
     var title1 = d3.selectAll("#title1")
-        .html(function(d) { return "CO<sub>2</sub> emissions (in metric tons per capita) over the world in " + year });
-
+        .html(function(d) { return "CO<sub>2</sub> emissions <small>(metric tons per capita)</small> over the world in " + year });
+    
     // make a datamap in worlmap from HTML
     var map = new Datamap( {
         element: document.getElementById("worldmap"),
@@ -21,7 +21,7 @@ var drawWorldmap = function(dataset, year){
                     currentcountry = geography.id;
                     getDataDonut(year, data, geography.id);
                     getDataGraph(dataset, geography.id);
-                    timeMove(year);
+                    drawTimeLine(year);
                 });
             },
 

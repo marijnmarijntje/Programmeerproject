@@ -5,7 +5,7 @@
 
 function drawLineGraph() {
     var introtitle = d3.selectAll("#introductiontitle")
-        .html(function(d) { return "Average global surface temperature from 1880 till 2015" });
+        .html(function(d) { return "Average global surface temperature <small>(°C)</small> from 1880 till 2015" });
     // Set the dimensions of the canvas / graph
     var margin = {top: 30, right: 80, bottom: 60, left: 40},
         width = 670 - margin.left - margin.right,
@@ -42,7 +42,7 @@ function drawLineGraph() {
             .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
     // Get the data
-    d3.csv("/data/linegraph.csv", function(error, data) {
+    d3.csv("project/data/linegraph.csv", function(error, data) {
         data.forEach(function(d) {
             d.date = parseDate(d.date);
             d.temp = +d.temp;
@@ -81,7 +81,7 @@ function drawLineGraph() {
         .attr("y", 6)
         .attr("dy", ".71em")
         .style("text-anchor", "end")
-        .html('<tspan style="font-size:0.9em"> Temperature </tspan>' + '<tspan style="font-size:0.7em"> (Celcius) </tspan>' );
+        .html('<tspan style="font-size:0.9em"> Temperature </tspan>');
 
     var focus = svg.append("g")                                
         .style("display", "none");

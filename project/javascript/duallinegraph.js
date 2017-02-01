@@ -91,9 +91,8 @@ var drawDuallinegraph = function(data, country) {
 	      .attr("y", 6)
 	      .attr("dy", ".71em")
 	      .style("text-anchor", "end")
-	      .html("CO<tspan baseline-shift='sub'font-size='0.6em'>2</tspan> emissions <br> <tspan baseline-shift='sub'font-size='0.4em'>metric tons per capita</tspan>");
+	      .html("CO<tspan baseline-shift='sub'font-size='0.6em'>2</tspan> emissions");
 	      
-
 	var yAxisRight = d3.svg.axis().scale(y2).ticks(6).orient("right").tickFormat(d3.format("d"));
 	svg.append("g")
 	      .attr("class", "y axis axisRight")
@@ -139,9 +138,9 @@ var drawDuallinegraph = function(data, country) {
         .attr("stroke-dashoffset", 0);
 
     d3.select("#title3")
-        .html(function(d) { return "CO<sub>2</sub> emissions and GDP over the years - " + '<tspan style="font-weight:bold">' + country + '</tspan>' + 
-        					" - " + '<tspan style="font-weight:bold">' + min_year + '</tspan>' + " till " + '<tspan style="font-weight:bold">' 
-        					+ max_year + '</tspan>'});
+        .html(function(d) { return "CO<sub>2</sub> emissions  <small>(metric tons per capita)</small> and GDP <small>(current $US)</small> over the years - " 
+        					+ '<tspan style="font-weight:bold">' + country + '</tspan>' + " - " + '<tspan style="font-weight:bold">' + min_year + 
+        					'</tspan>' + " till " + '<tspan style="font-weight:bold">' + max_year + '</tspan>'});
 
   	// HOVER
   	var focus = svg.append("g")
@@ -223,7 +222,7 @@ function noDataGraph() {
 	d3.select("#title3")
 	    .attr("width", width + margin.right)
 	    .attr("height", height + margin.top + margin.bottom)
-	    .html(function(d) { return "Not enough data available to visualize the CO2 emissions and GDP - " 
+	    .html(function(d) { return "Not enough data available to visualize the CO<sub>2</sub> emissions and GDP - " 
 	    					+ '<tspan style="font-weight:bold">' + country + '</tspan>' })
 	    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 }

@@ -1,3 +1,7 @@
+body {
+  font-size: 1.3em;
+}
+
 .container {
   margin-top: 20px;
   margin-bottom: 50px;
@@ -6,6 +10,7 @@
 #introduction {
   border-radius: 25px;
   background: #F0F0F0;
+  text-align: center;
 }
 
 .introduction {

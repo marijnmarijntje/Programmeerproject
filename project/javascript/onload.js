@@ -11,7 +11,7 @@ var norm_color;
 window.onload = function(){ 
   drawLineGraph();
   
-  d3.json("data/data.json", function(error, dataset) {      
+  d3.json("project/data/data.json", function(error, dataset) {      
       if (error) throw error;
       orgData = dataset; 
 

@@ -71,8 +71,9 @@ var drawDonutchart = function(year, data, countrycode) {
     node = data[countrycode]["piechart"];
 
     d3.select("#title2")
-        .html(function(d) { return "CO<sub>2</sub> emissions, by source - " + '<tspan style="font-weight:bold">' + country + 
-                            '</tspan>' + " - " + '<tspan style="font-weight:bold">' + year + '</tspan>'});
+        .html(function(d) { return "CO<sub>2</sub> emissions <small>(% of fuel combustion)</small> by source - " + 
+                            '<tspan style="font-weight:bold">' + country + '</tspan>' +  " - " + 
+                            '<tspan style="font-weight:bold">' + year + '</tspan>'});
 
 
     /* ------- PIE SLICES -------*/
@@ -111,6 +112,7 @@ var drawDonutchart = function(year, data, countrycode) {
         });
 
     legend.append('rect')
+        .attr("class", "squares")
         .attr('width', legendRectSize)
         .attr('height', legendRectSize)
         .style('fill', color)
@@ -124,7 +126,7 @@ var drawDonutchart = function(year, data, countrycode) {
         
     slice.on("mousemove", function(d){
         div.style("left", 105+"px");
-        div.style("top", 155+"px");
+        div.style("top", 190+"px");
         div.style("display", "inline-block");
         div.html(d.data.value +"%");
         d3.select(this)
@@ -156,6 +158,7 @@ function noDataDonut(country) {
     d3.select("#title2")
         .attr("width", width + margin.left + margin.right)
         .attr("height", height + margin.top + margin.bottom)
-        .html(function(d) { return "No data available to visualize the CO2 emissions, by sources - " + '<tspan style="font-weight:bold">' + country + '</tspan>' })
+        .html(function(d) { return "No data available to visualize the CO<sub>2</sub> emissions, by sources - " 
+                            + '<tspan style="font-weight:bold">' + country + '</tspan>' })
         .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 }

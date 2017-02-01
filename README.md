@@ -1,6 +1,13 @@
-# Programmeerproject Proposal
+# Programmeerproject readme
 ## Data visualisatie voor de minor programmeren
 ## Door Marijn Gulpen 09-07-2017
+
+Your GitHub repository should contain a complete README.md file 
+- [ ] application name
+- [ ] a couple of screen shots (resized to appropriate width/height for readability)
+- [ ] its purpose, your name
+- [ ] a copyright statement. 
+**The README should be easy to read.**
 
 ### *OPEN homepage.html*
 
