@@ -34,8 +34,8 @@ window.onload = function(){
 
       // default visualisations
       drawWorldmap(dataset, year);
+      getDataTable(dataset[year], year);
   	  getDataDonut(year, dataset[year], currentcountry);
-      getTableData(dataset[year], year);
       getDataGraph(dataset, currentcountry);
       drawTimeLine(year);
 
@@ -105,9 +105,10 @@ window.onload = function(){
           value = timeScale.invert(d3.mouse(this)[0]);
           brush.extent([value, value]);
           year = formatDate(value);
+
           drawWorldmap(dataset, year);
-          getDataDonut(year, dataset[year], currentcountry);
-          getTableData(dataset[year], year);
+          getDataTable(dataset[year], year);
+          getDataDonut(year, dataset[year], currentcountry); 
           drawTimeLine(year);
         }
 

@@ -10,7 +10,10 @@ By clicking on a country in the worldmap of in the table a donutchart of this co
    
 
 **Clearly describe the technical design: how is the functionality implemented in your code? This should be like your DESIGN.md but updated to reflect the final application. First, give a high level overview, which helps us navigate and understand the total of your code (which components are there?). Second, go into detail, and describe the modules/classes and how they relate.**
-Every visualisation has its own javascript file with a "draw function" and in some cases also a "get data function", which transforms the data in the correct format for the visualisation. The first time that all visualisations will be drawn is because they get called in the onload function (can be found in '''onload.js''')
+Every visualisation has its own javascript file with a "draw function" and in some cases also a "get data function", which transforms the data in the correct format for the visualisation. The first time that all visualisations will be drawn is when they get called in the onload function (can be found in onload.js). This function also opens the data.json with all the data for the interactive visualisations. 
+The first function that will be called draws the linegraph in the introduction (*drawLineGraph*). This linegraph has nothing to do with the other visualisations and data.json and therefore is made first. 
+When the data.json is opened the functions, which draw the worldmap(*drawworldmap*), get data for the table(*getDataTable*), the donutchart(*getDataDonut*), the duallinegraph(*getDataGraph*) and the function which makes the timeline in this graph(*drawTimeLine*) are called. The defaultsettings are then the year 2012 and the United States as country. 
+
 
 
 **Clearly describe challenges that your have met during development. Document all important changes that your have made with regard to your design document (from the PROCESS.md). Here, we can see how much you have learned in the past month.**

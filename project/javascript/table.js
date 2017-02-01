@@ -3,7 +3,7 @@
 // This javascript first transforms the data into the correct format
 // and ranking. After that a table will made with the ranking.
 
-var getTableData = function(dataset, donutyear) {
+var getDataTable = function(dataset, donutyear) {
 	var allData = [];
 	var tableData = [];
 	var noData = []; 
