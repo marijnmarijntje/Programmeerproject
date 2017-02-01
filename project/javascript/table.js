@@ -83,9 +83,10 @@ var drawTable = function(tableData, dataset, donutyear) {
 				.style("fill", over_color);           
 		})
 		.on("click", function(d) {
-			getDataDonut(donutyear, dataset, d.countrycode);
-			getDataGraph(orgData, d.countrycode);
-			timeMove(year);
+			currentcountry = d.countrycode;
+			getDataDonut(donutyear, dataset, currentcountry);
+			getDataGraph(orgData, currentcountry);
+			drawTimeLine(year);
 		});
 
 
@@ -97,10 +98,10 @@ var drawTable = function(tableData, dataset, donutyear) {
 		.html(function(d){ return d.value ;});
 }
 
-function myFunction() {
+function searchFunction() {
   // Declare variables 
   var input, filter, table, tr, td, i;
-  input = document.getElementById("myInput");
+  input = document.getElementById("searchbar");
   filter = input.value.toUpperCase();
   table = document.getElementById("ranktable");
   tr = table.getElementsByTagName("tr");

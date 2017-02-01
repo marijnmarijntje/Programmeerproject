@@ -33,7 +33,7 @@ window.onload = function(){
       currentcountry = "USA";
 
       // default visualisations
-      drawWorldmap(dataset, year);
+      drawWorldmap(year);
       getDataTable(dataset[year], year);
   	  getDataDonut(year, dataset[year], currentcountry);
       getDataGraph(dataset, currentcountry);
@@ -106,7 +106,7 @@ window.onload = function(){
           brush.extent([value, value]);
           year = formatDate(value);
 
-          drawWorldmap(dataset, year);
+          drawWorldmap(year);
           getDataTable(dataset[year], year);
           getDataDonut(year, dataset[year], currentcountry); 
           drawTimeLine(year);

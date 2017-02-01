@@ -5,7 +5,6 @@
 // will appear.
 
 var getDataDonut = function(year, data, countrycode) {
-    
     donutData = data[countrycode]["piechart"];
     country = data[countrycode]["country"];
     
@@ -19,11 +18,11 @@ var getDataDonut = function(year, data, countrycode) {
         noDataDonut(country);
     }
     else {
-        drawDonutchart(year, data, countrycode);
+        drawDonutChart(year, data, countrycode);
     }   
 }
 
-var drawDonutchart = function(year, data, countrycode) {
+var drawDonutChart = function(year, data, countrycode) {
 
     d3.selectAll(".donut-vis").remove();
     d3.selectAll(".svgg").remove();

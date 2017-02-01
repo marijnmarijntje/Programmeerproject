@@ -6,6 +6,7 @@
 function drawLineGraph() {
     var introtitle = d3.selectAll("#introductiontitle")
         .html(function(d) { return "Average global surface temperature <small>(°C)</small> from 1880 till 2015" });
+    
     // Set the dimensions of the canvas / graph
     var margin = {top: 30, right: 80, bottom: 60, left: 40},
         width = 670 - margin.left - margin.right,
@@ -43,6 +44,7 @@ function drawLineGraph() {
 
     // Get the data
     d3.csv("project/data/linegraph.csv", function(error, data) {
+        if (error) throw error;
         data.forEach(function(d) {
             d.date = parseDate(d.date);
             d.temp = +d.temp;
