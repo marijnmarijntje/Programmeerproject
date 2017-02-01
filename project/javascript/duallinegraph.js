@@ -91,7 +91,8 @@ var drawDuallinegraph = function(data, country) {
 	      .attr("y", 6)
 	      .attr("dy", ".71em")
 	      .style("text-anchor", "end")
-	      .html("CO<tspan baseline-shift='sub'font-size='0.6em'>2</tspan> emissions");
+	      .html("CO<tspan baseline-shift='sub'font-size='0.6em'>2</tspan> emissions <br> <tspan baseline-shift='sub'font-size='0.4em'>metric tons per capita</tspan>");
+	      
 
 	var yAxisRight = d3.svg.axis().scale(y2).ticks(6).orient("right").tickFormat(d3.format("d"));
 	svg.append("g")

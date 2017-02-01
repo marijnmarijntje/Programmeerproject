@@ -12,3 +12,11 @@
   position: absolute;  
   stroke-dasharray: 3, 3;
 }
+
+.y.axisLeft text {
+    fill: darkred;
+}
+
+.y.axisRight text {
+    fill: steelblue;
+}
