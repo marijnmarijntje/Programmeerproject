@@ -32,7 +32,7 @@ The timeslider is already in the HTML file, but not working yet
 ## Week 2
 
 ### Day 6 (16-01-2017)
-** Finished for MVP **
+**Finished for MVP**
 * All three visualisations
 * Timeslider
 * Start of a table -> This is a new idea, which is the last interactive component of the visualisations. In this table you can look up a country and see its ranking of that particular year.

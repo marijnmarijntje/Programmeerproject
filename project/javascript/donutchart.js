@@ -4,9 +4,10 @@
 // and then draws the donutchart. If there is no data a 'no data' screen 
 // will appear.
 
-var getDataDonut = function(year, data, countrycode) {
-    donutData = data[countrycode]["piechart"];
-    country = data[countrycode]["country"];
+var getDataDonut = function(year, donutData, countrycode) {
+
+    country = donutData["country"];
+    donutData = donutData["piechart"];
     
     for (var key in donutData) {
         if (donutData[key]["value"] == "nd") {
@@ -24,14 +25,14 @@ var getDataDonut = function(year, data, countrycode) {
 
 var drawDonutChart = function(year, data, countrycode) {
 
-    d3.selectAll(".donut-vis").remove();
+    d3.selectAll(".donutVis").remove();
     d3.selectAll(".svgg").remove();
     
     var width = 620,
         height = 300;
 
     var svg = d3.select("#donutchart").append("svg")
-        .attr("class", "donut-vis")
+        .attr("class", "donutVis")
         .attr("width", width)
         .attr("height", height)
     	.append("g")
@@ -61,7 +62,6 @@ var drawDonutChart = function(year, data, countrycode) {
     var legendSpacing = 4;
 
     svg.attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
-
 
     var color = d3.scale.ordinal()
                 .range(["#98abc5", "#6b486b", "#a05d56", "#d0743c", "#ff8c00"]); 
@@ -125,7 +125,7 @@ var drawDonutChart = function(year, data, countrycode) {
         
     slice.on("mousemove", function(d){
         div.style("left", 105+"px");
-        div.style("top", 190+"px");
+        div.style("top", 180+"px");
         div.style("display", "inline-block");
         div.html(d.data.value +"%");
         d3.select(this)
@@ -148,7 +148,7 @@ var drawDonutChart = function(year, data, countrycode) {
 
 function noDataDonut(country) {
 
-    d3.selectAll(".donut-vis").remove();
+    d3.selectAll(".donutVis").remove();
 
     var margin = {top: 20, right: 80, bottom: 10, left: 80},
     width = 600 - margin.left - margin.right,
@@ -158,6 +158,7 @@ function noDataDonut(country) {
         .attr("width", width + margin.left + margin.right)
         .attr("height", height + margin.top + margin.bottom)
         .html(function(d) { return "No data available to visualize the CO<sub>2</sub> emissions, by sources - " 
-                            + '<tspan style="font-weight:bold">' + country + '</tspan>' })
+                            + '<tspan style="font-weight:bold">' + country + '</tspan>' + " - " +
+                            '<tspan style="font-weight:bold">' + year + '</tspan>'})
         .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 }

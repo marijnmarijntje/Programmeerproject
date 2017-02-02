@@ -7,6 +7,7 @@ var getDataTable = function(dataset, donutyear) {
 	var allData = [];
 	var tableData = [];
 	var noData = []; 
+
 	for (var country in dataset) {
 		if (dataset[country]["co2emissions"] != "nd") {
 		 	tableData.push({ countrycode: dataset[country]["code"],
@@ -71,21 +72,21 @@ var drawTable = function(tableData, dataset, donutyear) {
 		.on("mouseover", function(d){
 			d3.select(this)
 				.style("background-color", "coral");
-			select_country = "." + d.countrycode;
-           	over_color = d3.select(select_country).style("fill");
-			d3.select(select_country)
+			selectCountry = "." + d.countrycode;
+           	normColor = d3.select(selectCountry).style("fill");
+			d3.select(selectCountry)
 				.style("fill", "#8e7216");
 		})
 		.on("mouseout", function(d){
 			d3.select(this)
 				.style("background-color","transparent");
-			d3.select(select_country)
-				.style("fill", over_color);           
+			d3.select(selectCountry)
+				.style("fill", normColor);           
 		})
 		.on("click", function(d) {
-			currentcountry = d.countrycode;
-			getDataDonut(donutyear, dataset, currentcountry);
-			getDataGraph(orgData, currentcountry);
+			currentCountry = d.countrycode;
+			getDataDonut(donutyear, dataset[currentCountry], currentCountry);
+			getDataGraph(orgData, currentCountry);
 			drawTimeLine(year);
 		});
 

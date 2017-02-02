@@ -4,9 +4,9 @@
 // draws the timeslider and calls the functions of the visualisations
 
 var orgData;
-var currentcountry;
+var currentCountry;
 var xline; 
-var norm_color;
+var normColor;
 
 window.onload = function(){ 
   drawLineGraph();
@@ -30,13 +30,13 @@ window.onload = function(){
       var startValue = timeScale(new Date("2012"));
       startingValue = new Date("2012");
       year = formatDate(startingValue);
-      currentcountry = "USA";
+      currentCountry = "USA";
 
       // default visualisations
       drawWorldmap(year);
       getDataTable(dataset[year], year);
-  	  getDataDonut(year, dataset[year], currentcountry);
-      getDataGraph(dataset, currentcountry);
+  	  getDataDonut(year, dataset[year][currentCountry], currentCountry);
+      getDataGraph(dataset, currentCountry);
       drawTimeLine(year);
 
       // defines brush
@@ -108,7 +108,7 @@ window.onload = function(){
 
           drawWorldmap(year);
           getDataTable(dataset[year], year);
-          getDataDonut(year, dataset[year], currentcountry); 
+          getDataDonut(year, dataset[year][currentCountry], currentCountry); 
           drawTimeLine(year);
         }
 

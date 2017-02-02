@@ -18,8 +18,8 @@ var drawWorldmap = function(year){
 
             done: function(datamap) {
                 datamap.svg.selectAll(".datamaps-subunit").on("click", function(geography) {
-                    currentcountry = geography.id;
-                    getDataDonut(year, data, geography.id);
+                    currentCountry = geography.id;
+                    getDataDonut(year, data[currentCountry], geography.id);
                     getDataGraph(orgData, geography.id);
                     drawTimeLine(year);
                 });

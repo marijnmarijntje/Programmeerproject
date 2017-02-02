@@ -23,7 +23,7 @@ var getDataGraph = function(dataset, countrycode){
     }
 
     for (var i = 0; i < years.length - 1; i++) {
-    	if (years[i] - years[i + 1] < -3) 
+    	if (years[i] - years[i + 1] < -4) 
     		noData = true;
     }
 
@@ -43,10 +43,15 @@ var drawDuallinegraph = function(data, country) {
     width = 600 - margin.left - margin.right,
     height = 270 - margin.top - margin.bottom;
 
-	var bisectDate = d3.bisector((function(d) { return d.date; })).left;
-	
 	var max_year = d3.max(data, function(d) { return d.date; });
 	var min_year = d3.min(data, function(d) { return d.date; });
+
+    d3.select("#title3")
+     	.html(function(d) { return "CO<sub>2</sub> emissions  <small>(metric tons per capita)</small> and GDP <small>(current $US)</small> over the years - " 
+    					+ '<tspan style="font-weight:bold">' + country + '</tspan>' + " - " + '<tspan style="font-weight:bold">' + min_year + 
+    					'</tspan>' + " till " + '<tspan style="font-weight:bold">' + max_year + '</tspan>'});
+	
+	var bisectDate = d3.bisector((function(d) { return d.date; })).left;
 
 	xLine = d3.scale.linear().domain(d3.extent(data, function(d) { return d.date; })).range([0, width]);
 	var y1 = d3.scale.linear().domain([0, d3.max(data, function(d) { return Math.max(d.co2emissions); })]).range([height, 0]); 
@@ -136,11 +141,6 @@ var drawDuallinegraph = function(data, country) {
         .duration(1000)
         .ease("linear")
         .attr("stroke-dashoffset", 0);
-
-    d3.select("#title3")
-        .html(function(d) { return "CO<sub>2</sub> emissions  <small>(metric tons per capita)</small> and GDP <small>(current $US)</small> over the years - " 
-        					+ '<tspan style="font-weight:bold">' + country + '</tspan>' + " - " + '<tspan style="font-weight:bold">' + min_year + 
-        					'</tspan>' + " till " + '<tspan style="font-weight:bold">' + max_year + '</tspan>'});
 
   	// HOVER
   	var focus = svg.append("g")
