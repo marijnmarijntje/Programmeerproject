@@ -3,20 +3,20 @@
 ## Week 1
 
 ### Day 1 (09-01-2017)
-Made a proposal with all visualisations.
+Made a proposal with all visualizations.
 
 ### Day 2 (10-01-2017)
 I was sick and was not able to study.
 
 ### Day 3 (11-01-2017)
-Collect the right data. For the interactive visualisations I chose to use data from the year 2007, 2010 and 2013. 
+Collect the right data. For the interactive visualizations I chose to use data from the year 2007, 2010 and 2013. 
 However it may be interesting to take years were switches has taken place (wealth of China or new laws that changed the CO2 emissions over years).
 All data can be found in the folder *data*. 
 
 I made the Design Product today and made some ideas for the JSON formats and different functions that I need to write.
 
 To do for tomorrow:
-- [x] Make sure the right data is downloaded for visualisations 2, 3 and 4.
+- [x] Make sure the right data is downloaded for visualizations 2, 3 and 4.
 - [x] Make JSON file
 - [X] Make HTML files
 
@@ -33,9 +33,9 @@ The timeslider is already in the HTML file, but not working yet
 
 ### Day 6 (16-01-2017)
 **Finished for MVP**
-* All three visualisations
+* All three visualizations
 * Timeslider
-* Start of a table -> This is a new idea, which is the last interactive component of the visualisations. In this table you can look up a country and see its ranking of that particular year.
+* Start of a table -> This is a new idea, which is the last interactive component of the visualizations. In this table you can look up a country and see its ranking of that particular year.
 
 To do for today:
 - [X] Timeslider [source](http://bl.ocks.org/zanarmstrong/ddff7cd0b1220bc68a58) of used timeslider
@@ -54,7 +54,7 @@ To do for tomorrow:
 - [ ] Start with the table
 
 ### Day 8 (18-01-2016)
-I made different css files to have a better overview for the different visualisations.
+I made different css files to have a better overview for the different visualizations.
 The dual graph is finished for the MVP.
 * for next week: make timeslider interactive with dual graph
 
@@ -69,7 +69,7 @@ The dual graph is finished for the MVP.
 The table needs a search balk and needs to be prettier. This will be done for the deadline tomorrow.
 
 ### Day 10 (20-01-2017)
-Today I finished a alpha version in which all three visualisations are working. However not pretty enough.
+Today I finished a alpha version in which all three visualizations are working. However not pretty enough.
 Also the timeslider works (*one iteractive component*).
 The second component is the table, which is not interactive yet. Since it needs to light up the country if you hover over the name in the table.
 For the beta version all this needs to be done and maybe at an extra interactive component to the line graph so the user can switch between GDP and another variable (not yet decided).
@@ -85,7 +85,7 @@ For the beta version all this needs to be done and maybe at an extra interactive
 ### Day 12 (24-01-2017)
 [Example donutchart](http://www.adeveloperdiary.com/d3-js/create-3d-donut-chart-using-d3-js/)
 I finished the donutchart(slices are lighting up when you hover hover and also the specific text in the legend will get bold while hover over.)
-The table is interactive with the map. For tomorrow I want to make the table interactive with the other two visualisations.
+The table is interactive with the map. For tomorrow I want to make the table interactive with the other two visualizations.
 
 ### Day 13 (25-01-2017)
 Finished the last interactive component (table is interactive with click funtion and updates the donutchart and the linegraph).
@@ -99,7 +99,7 @@ The table is also ranked: the countries with the highest emissions first and no 
 * There is a counter for no data points 
 
 ### Weekend (29-01-2017)
-Made a new homepage with bootstrap. Timeslider is now located under the worldmap and table and above the other two visualisations so that its more in the center of the page.
+Made a new homepage with bootstrap. Timeslider is now located under the worldmap and table and above the other two visualizations so that its more in the center of the page.
 --> file is called: homepage.html
 
 ## Week 4

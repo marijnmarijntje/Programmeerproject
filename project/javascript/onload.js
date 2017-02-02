@@ -1,11 +1,11 @@
 // Name: Marijn Gulpen
 // Student number: 10575243
 // This javascript file is the homepage file, which loads the data, 
-// draws the timeslider and calls the functions of the visualisations
+// draws the timeslider and calls the functions of the visualizations
 
 var orgData;
 var currentCountry;
-var xline; 
+var xLine; 
 var normColor;
 
 window.onload = function(){ 
@@ -26,20 +26,20 @@ window.onload = function(){
         .range([0, width])
         .clamp(true);
 
-      // defaultsettings
+      // Defaultsettings
       var startValue = timeScale(new Date("2012"));
       startingValue = new Date("2012");
       year = formatDate(startingValue);
       currentCountry = "USA";
 
-      // default visualisations
+      // Default visualizations
       drawWorldmap(year);
       getDataTable(dataset[year], year);
   	  getDataDonut(year, dataset[year][currentCountry], currentCountry);
       getDataGraph(dataset, currentCountry);
       drawTimeLine(year);
 
-      // defines brush
+      // Defines brush
       var brush = d3.svg.brush()
         .x(timeScale)
         .extent([startingValue, startingValue])
@@ -53,9 +53,7 @@ window.onload = function(){
 
       svg.append("g")
         .attr("class", "x timeaxis")
-      // put in middle of screen
       .attr("transform", "translate(0," + height / 2 + ")")
-      // inroduce axis
       .call(d3.svg.axis()
         .scale(timeScale)
         .orient("bottom")
@@ -67,6 +65,7 @@ window.onload = function(){
         .select(function() { return this.parentNode.appendChild(this.cloneNode(true)); })
         .attr("class", "halo");
 
+      // Append slider
       var slider = svg.append("g")
         .attr("class", "slider")
         .call(brush);
@@ -84,12 +83,13 @@ window.onload = function(){
       var handle = slider.append("g")
         .attr("class", "handle")
 
+      // Defines the selected year
       handle.append("circle")
         .attr("transform", "translate(0," + height / 2 + ")")
         .style("fill", "white")
         .style("stroke", "grey")
         .attr("r", 8);
-      
+        
       handle.append("text")
         .text(startingValue)
         .attr("class", "slideryear")
@@ -98,6 +98,7 @@ window.onload = function(){
       slider
         .call(brush.event)
 
+      // Function used when the timeslider selects another year
       function brushed() {
         var value = brush.extent()[0];
 

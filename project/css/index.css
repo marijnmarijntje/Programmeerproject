@@ -1,3 +1,7 @@
+/*Name: Marijn Gulpen
+Student number: 10575243
+CSS stylesheet Homepage and Basic style */
+
 body {
   font-size: 1.3em;
 }
@@ -7,15 +11,28 @@ body {
   margin-bottom: 50px;
 }
 
-#introduction {
-  border-radius: 25px;
-  background: #F0F0F0;
-  text-align: justify;
+.title {
+    font-size: 1.5em;
+    text-align: center;
 }
 
-.introduction {
+/*Introduction and footer*/
+#introbackground {
+    border-radius: 25px;
+    background: #F0F0F0;
+}
+
+#introductiongraph {
+  text-align: center;
   margin: auto;
   width: 50%;
+}
+
+#introtext {
+  text-align: justify;
+  font-size: 1.2em;
+  margin-left: 15%;
+  width: 70%;
 }
 
 .line { 
@@ -31,7 +48,7 @@ body {
 }
 
 #source {
-  bottom: 0;
+  margin-top: 20%;
   font-size: .8em;
   position: absolute;
 }
@@ -44,6 +61,7 @@ body {
     shape-rendering: crispEdges;
 }
 
+/*Visualizations & interactive components*/
 #worldmap {
     height: 420px;
 }
@@ -53,20 +71,8 @@ body {
 }
 
 #ranktable {
-  /*font-size: .9em;*/
+  font-size: .9em;
   width: 350px;
 }
 
-.jumbotron {
-    background-color: #D3D3D3;
-    color: black;
-}
 
-.jumbotron-fluid {
-    background-color: #D3D3D3;
-}
-
-.title {
-    font-size: 1.5em;
-    text-align: center;
-}

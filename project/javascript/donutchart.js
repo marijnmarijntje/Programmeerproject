@@ -1,9 +1,9 @@
 // Name: Marijn Gulpen
 // Student number: 10575243
-// This javascript first transforms the data into the correct format
-// and then draws the donutchart. If there is no data a 'no data' screen 
-// will appear.
+// This javascript draws the donutchart if there is enough data
+// in case there is no data a 'no data' screen  will appear.
 
+// Function checks if there is data for selected country
 var getDataDonut = function(year, donutData, countrycode) {
 
     country = donutData["country"];
@@ -23,6 +23,7 @@ var getDataDonut = function(year, donutData, countrycode) {
     }   
 }
 
+// In this function the donutchart will be drawn inclusive legend and tooltip
 var drawDonutChart = function(year, data, countrycode) {
 
     d3.selectAll(".donutVis").remove();
@@ -74,8 +75,7 @@ var drawDonutChart = function(year, data, countrycode) {
                             '<tspan style="font-weight:bold">' + country + '</tspan>' +  " - " + 
                             '<tspan style="font-weight:bold">' + year + '</tspan>'});
 
-
-    /* ------- PIE SLICES -------*/
+    // Defines parts of chart
     var slice = svg.select(".slices").selectAll("path.slice")
         .data(pie(node), function(d){ return d.data.seriesname })
 
@@ -93,8 +93,7 @@ var drawDonutChart = function(year, data, countrycode) {
             };
         })
 
-    /* ------- LEGEND -------*/
-
+   // Defines the legend of the chart and gives every block a ID
     var legend = svg.selectAll('.legend')
         .data(color.domain())
         .sort(d3.descending)
@@ -122,7 +121,9 @@ var drawDonutChart = function(year, data, countrycode) {
         .attr('y', legendRectSize - legendSpacing)
         .text(function(d) { return d; })
         .attr("id", function(d) {return d.seriesname});
-        
+
+    // Interactive component of the function which also activates 
+    // the legend by their ID
     slice.on("mousemove", function(d){
         div.style("left", 105+"px");
         div.style("top", 180+"px");
@@ -146,6 +147,7 @@ var drawDonutChart = function(year, data, countrycode) {
         .remove();
 }
 
+// Function only used if there is no data for the donutchart
 function noDataDonut(country) {
 
     d3.selectAll(".donutVis").remove();

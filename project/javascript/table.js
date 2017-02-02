@@ -3,14 +3,18 @@
 // This javascript first transforms the data into the correct format
 // and ranking. After that a table will made with the ranking.
 
+// Function ranks the data in right order and converts it in right format
 var getDataTable = function(dataset, donutyear) {
-	var allData = [];
+	// List that will used to store all data
 	var tableData = [];
+	// Lists to store temporary nummerical data and no data points
+	var numData = [];
 	var noData = []; 
 
+	// Puts the data in the right list and right format
 	for (var country in dataset) {
 		if (dataset[country]["co2emissions"] != "nd") {
-		 	tableData.push({ countrycode: dataset[country]["code"],
+		 	numData.push({ countrycode: dataset[country]["code"],
 		 					Country: dataset[country]["country"],
 		 					CO2emissions: parseFloat(dataset[country]["co2emissions"])
 		 	});
@@ -23,24 +27,28 @@ var getDataTable = function(dataset, donutyear) {
 	 	}
     }
 
-    var numranking = tableData.sort(function(a, b) { return a.CO2emissions < b.CO2emissions ? 1 : -1; })
+    // Sort countries in descending order
+    var numranking = numData.sort(function(a, b) { return a.CO2emissions < b.CO2emissions ? 1 : -1; })
                 .slice(0, tableData.length);
 
+    // Sort countries without data in alphabetical order 
     var alphranking = noData.sort(function(a, b) {return a.Country > b.Country ? 1 : -1 })
     			.slice(0, noData.length);;
     
-    for (var datapoint in tableData) {
-    	allData.push(tableData[datapoint]);
+   	// Collects both lists in one big list
+    for (var datapoint in numData) {
+    	tableData.push(numData[datapoint]);
     }
     for (var datapoint in noData) {
-    	allData.push(noData[datapoint]);
+    	tableData.push(noData[datapoint]);
     }
     
-    for (var i = 0; i < allData.length; i++) {
-    	allData[i].Ranking = i + 1;
+    // Gives a ranking to every country based on the big list
+    for (var i = 0; i < tableData.length; i++) {
+    	tableData[i].Ranking = i + 1;
     }
 
-    drawTable(allData, dataset, donutyear);
+    drawTable(tableData, dataset, donutyear);
 }
 
 var drawTable = function(tableData, dataset, donutyear) {
@@ -57,6 +65,7 @@ var drawTable = function(tableData, dataset, donutyear) {
 	tbody = table.append("tbody")
 			.attr("class", "tablecontent");
 
+	// Defines header
 	var header = thead.append("tr")
 		.selectAll("th")
 		.data(columns)
@@ -64,11 +73,13 @@ var drawTable = function(tableData, dataset, donutyear) {
 		.append("th")
 		.attr("id", function(d) { return d;});
   	
+  	// Defines rows and gives every row an ID (same as countrycode)
   	var rows = tbody.selectAll("tr")
 		.data(tableData)
 		.enter()
 		.append("tr")
 		.attr("class", function(d) { return d.countrycode})
+		// Fills country in worldmap when hovering over rows
 		.on("mouseover", function(d){
 			d3.select(this)
 				.style("background-color", "coral");
@@ -83,13 +94,13 @@ var drawTable = function(tableData, dataset, donutyear) {
 			d3.select(selectCountry)
 				.style("fill", normColor);           
 		})
+		// Calls the two other visualization when user clicks on a row
 		.on("click", function(d) {
 			currentCountry = d.countrycode;
 			getDataDonut(donutyear, dataset[currentCountry], currentCountry);
 			getDataGraph(orgData, currentCountry);
 			drawTimeLine(year);
 		});
-
 
 	var cells = rows.selectAll("td")
 		.data(function(row) { return columns.map(function(d, i)
@@ -99,6 +110,7 @@ var drawTable = function(tableData, dataset, donutyear) {
 		.html(function(d){ return d.value ;});
 }
 
+// Function to search a specific country in the table
 function searchFunction() {
   // Declare variables 
   var input, filter, table, tr, td, i;
@@ -107,7 +119,7 @@ function searchFunction() {
   table = document.getElementById("ranktable");
   tr = table.getElementsByTagName("tr");
 
-  // Loop through all table rows, and hide those who don't match the search query
+  // Loop through all table rows, and does ot display cells that not match the search 
   for (i = 0; i < tr.length; i++) {
     td = tr[i].getElementsByTagName("td")[1];
     if (td) {

@@ -4,7 +4,10 @@
 // and then draws a graph with two axes. If there is no data a 'no data' screen 
 // will appear.
 
+// Function transforms data in right format and checks if there is (enough) data
 var getDataGraph = function(dataset, countrycode){
+	
+	// List to store datapoints in for every year
 	dataLine = [];
 	years = [];
 
@@ -18,10 +21,12 @@ var getDataGraph = function(dataset, countrycode){
 	 	}
     }
 
+    // If there is not data, graph will not be drawn 
     if (years >= 0) {
     	var noData = true;
     }
 
+   	// If there are more than 4 years missing in a row, graph will not be drawn 
     for (var i = 0; i < years.length - 1; i++) {
     	if (years[i] - years[i + 1] < -4) 
     		noData = true;
@@ -35,6 +40,7 @@ var getDataGraph = function(dataset, countrycode){
 	}
 }
 
+// In this function the linegraph will be drawn inclusive tooltip
 var drawDuallinegraph = function(data, country) {
 	
 	d3.selectAll(".dualgraphVis").remove();
@@ -57,6 +63,7 @@ var drawDuallinegraph = function(data, country) {
 	var y1 = d3.scale.linear().domain([0, d3.max(data, function(d) { return Math.max(d.co2emissions); })]).range([height, 0]); 
 	var y2 = d3.scale.linear().domain([0, d3.max(data, function(d) { return Math.max(d.gdp); })]).range([height, 0]);
 
+	// Define the two lines
 	var line1 = d3.svg.line()
 		.interpolate("linear") 
 	    .x(function(d, i) { return xLine(d.date); })
@@ -110,6 +117,7 @@ var drawDuallinegraph = function(data, country) {
 	      .style("text-anchor", "end")
 	      .text("GDP");
 
+	// Drawing line 1
 	var path = svg.append("path")
       .attr("d", line1(data))
       .attr("stroke", "steelblue")
@@ -126,6 +134,7 @@ var drawDuallinegraph = function(data, country) {
         .ease("linear")
         .attr("stroke-dashoffset", 0);
 
+    // Drawing line 2
    	var path = svg.append("path")
       .attr("d", line2(data))
       .attr("stroke", "darkred")
@@ -142,7 +151,7 @@ var drawDuallinegraph = function(data, country) {
         .ease("linear")
         .attr("stroke-dashoffset", 0);
 
-  	// HOVER
+  	// Hover with circle and text elements
   	var focus = svg.append("g")
       .attr("class", "focus")
       .style("display", "none");
@@ -178,6 +187,7 @@ var drawDuallinegraph = function(data, country) {
 	      .on("mouseout", function() { focus.style("display", "none"); })
 	      .on("mousemove", mouseMove);
 
+	// When hovering over the graph the year, and exact GDP and emissions will be shown
 	function mouseMove() {
 	    var x0 = xLine.invert(d3.mouse(this)[0]),
 	        i = bisectDate(data, x0, 1),
@@ -192,8 +202,10 @@ var drawDuallinegraph = function(data, country) {
 	}
 }
 
-var drawTimeLine = function(year) {
 
+// Function draws a vertical line in the graph to show the selected year in the timeslider
+var drawTimeLine = function(year) {
+	
 	d3.selectAll(".timeline").remove();
 
 	bottom = 16.95;
@@ -211,6 +223,7 @@ var drawTimeLine = function(year) {
         .style("fill", "none");	
 }
 
+// Function only used if there is no(t) (enough) data for the duallinegraph
 function noDataGraph() {
 
 	d3.selectAll(".dualgraphVis").remove();

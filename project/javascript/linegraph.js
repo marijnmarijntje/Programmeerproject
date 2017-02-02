@@ -1,13 +1,12 @@
 // Name: Marijn Gulpen
 // Student number: 10575243
 // This javascript draws the linegraph in the introduction. 
-// This graph has no linkages or interactivity with the other visualisations.
+// This graph has no linkages or interactivity with the other visualizations.
 
 function drawLineGraph() {
     var introtitle = d3.selectAll("#introductiontitle")
         .html(function(d) { return "Average global surface temperature <small>(°C)</small> from 1880 till 2015" });
-    
-    // Set the dimensions of the canvas / graph
+
     var margin = {top: 30, right: 80, bottom: 60, left: 40},
         width = 670 - margin.left - margin.right,
         height = 280 - margin.top - margin.bottom;
@@ -17,11 +16,9 @@ function drawLineGraph() {
         formatDate = d3.time.format("%Y"),
         bisectDate = d3.bisector(function(d) { return d.date; }).left; 
 
-    // Set the ranges
     var x = d3.time.scale().range([0, width]);
     var y = d3.scale.linear().range([height, 0]);
 
-    // Define the axes
     var xAxis = d3.svg.axis().scale(x)
         .orient("bottom").ticks(5);
 
@@ -33,7 +30,6 @@ function drawLineGraph() {
         .x(function(d) { return x(d.date); })
         .y(function(d) { return y(d.temp); });
         
-    // Adds the svg canvas
     var svg = d3.select("#linegraph")
         .append("svg")
             .attr("class", "chart")
@@ -42,7 +38,7 @@ function drawLineGraph() {
         .append("g")
             .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-    // Get the data
+    // Get the data from the CSV file
     d3.csv("project/data/linegraph.csv", function(error, data) {
         if (error) throw error;
         data.forEach(function(d) {
@@ -50,7 +46,7 @@ function drawLineGraph() {
             d.temp = +d.temp;
         });
 
-    // Scale the range of the data
+    // Scale the range of the data 
     var max_temp = d3.max(data, function(d) { return d.temp; });
 
     var min_temp = d3.min(data, function(d) { return d.temp; });
@@ -58,12 +54,12 @@ function drawLineGraph() {
     x.domain(d3.extent(data, function(d) { return d.date; }));
     y.domain([min_temp, max_temp]);
 
-    // Add the valueline path.
+    // Draw the line
     svg.append("path")
         .attr("class", "line")
         .attr("d", valueline(data));
 
-    // Add the X Axis
+    // Add the axis
     svg.append("g")
         .attr("class", "x axis")
         .attr("transform", "translate(0," + height + ")")
@@ -74,7 +70,6 @@ function drawLineGraph() {
         .attr("x", 265)
         .html('<tspan style="font-size:1em"; style="font-weight: bold"> Year </tspan>');
 
-    // Add the Y Axis
     svg.append("g")
         .attr("class", "y axis")
         .call(yAxis)
@@ -85,10 +80,11 @@ function drawLineGraph() {
         .style("text-anchor", "end")
         .html('<tspan style="font-size:0.9em"> Temperature </tspan>');
 
+    // Add focus for hover
     var focus = svg.append("g")                                
         .style("display", "none");
 
-       // append the x line
+       // Append the horizontal dotted line
         focus.append("line")
             .attr("class", "x")
             .style("stroke", "steelblue")
@@ -97,7 +93,7 @@ function drawLineGraph() {
             .attr("y1", 0)
             .attr("y2", height);
 
-        // append the y line
+        // Append vertical dotted line
         focus.append("line")
             .attr("class", "y")
             .style("stroke", "steelblue")
@@ -106,19 +102,19 @@ function drawLineGraph() {
             .attr("x1", width)
             .attr("x2", width);
 
-        // append the circle at the intersection
+        // Append circle 
         focus.append("circle")
             .style("fill", "none")
             .style("stroke", "steelblue")
             .attr("r", 4);
 
-        // place the value at the intersection
+        // Append the year as text
         focus.append("text")
             .attr("class", "lineyear")
             .attr("dx", 8)
             .attr("dy", "-.3em");
 
-        // place the date at the intersection
+        // Append the temperature as text
         focus.append("text")
             .attr("class", "linetemp")
             .attr("dx", 8)
@@ -133,6 +129,7 @@ function drawLineGraph() {
             .on("mouseout", function() { focus.style("display", "none"); })
             .on("mousemove", mousemove);  
 
+        // Function showing the focus (lines, circle and text) when hovering over
         function mousemove() {                                 
             var x0 = x.invert(d3.mouse(this)[0]),              
                 i = bisectDate(data, x0, 1),                   
