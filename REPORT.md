@@ -1,6 +1,6 @@
 # Programmeerproject Report
 ## Data visualisatie voor de minor programmeren
-## Door Marijn Gulpen 02-01-2017
+## Door Marijn Gulpen 02-02-2017
 
 ### **Short description of the application**
 

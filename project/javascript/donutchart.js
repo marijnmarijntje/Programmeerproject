@@ -64,7 +64,7 @@ var drawDonutChart = function(year, data, countrycode) {
     svg.attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
 
     var color = d3.scale.ordinal()
-                .range(["#98abc5", "#6b486b", "#a05d56", "#d0743c", "#ff8c00"]); 
+                .range(["#98abc5", "#6b486b", "#c68781", "#d0743c", "#ff8c00"]); 
 
     var div = d3.select("#donutchart").append("div").attr("class", "toolTip");
     node = data[countrycode]["piechart"];
