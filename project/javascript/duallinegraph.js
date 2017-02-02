@@ -25,7 +25,8 @@ var getDataGraph = function(dataset, countrycode){
     if (years >= 0) {
     	var noData = true;
     }
-
+    firstYear = years[0];
+    console.log(firstYear);
    	// If there are more than 4 years missing in a row, graph will not be drawn 
     for (var i = 0; i < years.length - 1; i++) {
     	if (years[i] - years[i + 1] < -4) 
@@ -205,22 +206,28 @@ var drawDuallinegraph = function(data, country) {
 
 // Function draws a vertical line in the graph to show the selected year in the timeslider
 var drawTimeLine = function(year) {
-	
-	d3.selectAll(".timeline").remove();
 
-	bottom = 16.95;
-    height = 196.95;
-    length = height - bottom; 
-    
-	d3.selectAll(".dualgraph-g").append("line")
-		.attr("class", "timeline")
-        .attr("x1", xLine(year))  
-        .attr("y1", 0)
-        .attr("x2", xLine(year))  
-        .attr("y2", length)
-        .style("stroke-width", 1)
-        .style("stroke", "green")
-        .style("fill", "none");	
+	// Check if the year is actually in the graph
+	if (year >= firstYear) {	
+		d3.selectAll(".timeline").remove();
+
+		bottom = 16.95;
+		height = 196.95;
+		length = height - bottom; 
+
+		d3.selectAll(".dualgraph-g").append("line")
+			.attr("class", "timeline")
+		    .attr("x1", xLine(year))  
+		    .attr("y1", 0)
+		    .attr("x2", xLine(year))  
+		    .attr("y2", length)
+		    .style("stroke-width", 1)
+		    .style("stroke", "green")
+		    .style("fill", "none");	
+	}	    
+	else {
+		d3.selectAll(".timeline").remove();	
+	}
 }
 
 // Function only used if there is no(t) (enough) data for the duallinegraph

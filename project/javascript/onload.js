@@ -7,6 +7,7 @@ var orgData;
 var currentCountry;
 var xLine; 
 var normColor;
+var firstYear;
 
 window.onload = function(){ 
   drawLineGraph();
