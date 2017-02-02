@@ -10,7 +10,7 @@ Under these two visualization there is a timeline that makes it possible to show
 By clicking on a country in the worldmap of in the table a donutchart of this country will be drawn. In this donutchart data of that specific country in regard to their CO2 emission sources is visualized. For that specific country the CO2 emissions and the GDP are visualized over the years(depends on the amount of data) in a graph with two y axis. 
 The three linked visualizations are all made with data from the [World DataBank](http://databank.worldbank.org/data/home.aspx).
 
-![GitHub Logo](/doc/screenshot1.jpg)
+![GitHub Logo](/doc/screenshot1.png)
    
 ### **Technical Design**
 
