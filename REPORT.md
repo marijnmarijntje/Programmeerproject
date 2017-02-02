@@ -1,13 +1,13 @@
 # Programmeerproject Report
 ## Data visualization - Programming Minor
-## Door Marijn Gulpen 02-02-2017
+## By Marijn Gulpen 02-02-2017
 
 ### **Short description of the application**
 
-In this project data about global temperatures, carbon dioxide emissions and gdp is visualised with the use of three interactive visualizations and two extra interactive components. All visualizations are made with D3. The first visualization that appears shows the annual global temperature from 1980 till 2015 in a linegraph (source: [NASA](http://climate.nasa.gov/vital-signs/global-temperature). This visualization is not linked with the other visualization, however it is possible to hover over the line to get the accurate value of the temperature. This linegraph supports the introduction of the project, namely CO2 emissions and welfare. This graph and introduction is not shown in the screenshot below. 
+In this project data about global temperatures, carbon dioxide emissions and gdp is visualised with the use of one linegraph, three interactive visualizations and two interactive components. All visualizations are made with D3. The first visualization that appears shows the annual global temperature from 1980 till 2015 in a linegraph (source: [NASA](http://climate.nasa.gov/vital-signs/global-temperature)). This visualization is not linked with the other visualization, however it is possible to hover over the line to get the accurate value of the temperature. This linegraph supports the introduction of the project, namely CO2 emissions and welfare. This graph and introduction is not shown in the screenshot below. 
 
-Direct under the data of the CO2 emissions per country is visualisized in a worldmap. The amount of emissions is divided in 5 classes and each class has its own color. The sixth color is for countries that do no have any available data. The table next to the worldmap shows the same data, however it is ranked, countries with the highest emissions are standing on top of the table and the countries with the lowest at the bottom. Each country get its own (unique) ranking number. 
-Under these two visualization there is a timeline that makes it possible to show the data of another year in the visualizations.
+Direct under the introduction data about the CO2 emissions is visualisized in a worldmap for every country. The amount of emissions is divided in 5 classes and each class has its own color. The grey color is for countries that do no have any available data. The table next to the worldmap shows the same data, however it is ranked, countries with the highest emissions are standing on top of the table and the countries with the lowest at the bottom. Each country get its own (unique) ranking number. 
+Under these two visualization there is a timeline that makes it possible to show the data for another year in the visualizations.
 By clicking on a country in the worldmap of in the table a donutchart of this country will be drawn. In this donutchart data of that specific country in regard to their CO2 emission sources is visualized. For that specific country the CO2 emissions and the GDP are visualized over the years(depends on the amount of data) in a graph with two y axis. 
 The three linked visualizations are all made with data from the [World DataBank](http://databank.worldbank.org/data/home.aspx).
 
@@ -15,13 +15,13 @@ The three linked visualizations are all made with data from the [World DataBank]
    
 ### **Technical Design**
 
-Every visualization has its own javascript file with a "draw function", which actually draws the visualization, and in some cases also a "get data function", which transforms the data in the correct format for the visualization. Some javascript files contain more functions, for example a "search function" or a "no data function". 
+Every visualization has its own javascript file with a "draw function", which actually draws the visualization, and in some cases also a "get data function", which transforms the data in the correct format for the visualization or checks the data for "no data points". Some javascript files contain more functions, for example a "search function" or a "no data function". 
 
 #### **onload.js**
 
 The first time that all visualizations will be drawn is when they get called in the onload function. This function also opens the data.json(can be found in the folder 'data') with all the data for the interactive visualizations. 
 The first function that will be called draws the linegraph in the introduction (*drawLineGraph*). This linegraph has nothing to do with the other visualizations and data.json and therefore is made first. 
-When the data.json is opened the functions, which draw the worldmap (*drawWorldmap*), get data for the table (*getDataTable*), the donutchart (*getDataDonut*), the duallinegraph (*getDataGraph*) and the function which makes the timeline in this graph(*drawTimeLine*) are called. The defaultsettings are the year 2012 and the United States as country. The timeline will be drawn in this javascript file as well, since it influences every visualizations and the table. The above mentioned functions will be called a second time (except for the getDataGraph) when another year is selected in the timeslider.
+When the data.json is opened the functions, which draw the worldmap (*drawWorldmap*), get data for the table (*getDataTable*), the donutchart (*getDataDonut*), the duallinegraph (*getDataGraph*) and the function which makes the timeline in this graph (*drawTimeLine*) are called. The defaultsettings are the year 2012 and the United States as country. The timeline will be drawn in this javascript file as well, since it influences every visualizations and the table. The above mentioned functions will be called a second time (except for the getDataGraph) when another year is selected in the timeslider.
 
 #### **linegraph.js**
 

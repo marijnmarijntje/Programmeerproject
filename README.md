@@ -1,8 +1,8 @@
 # Programmeerproject Readme
 ## Data visualization - Programming Minor
-## Door Marijn Gulpen 02-02-2017
+## By Marijn Gulpen 02-02-2017
 
-### Carbon dioxide emissions and Welfar
+### Carbon dioxide emissions and Welfare
 
 This website contains interactive visualizations about carbon dioxide emissions and its sources and gross domestic product (GDP). The purpose of this visualization is to show the links between these three and cancan be examined for every country. However, the data about emissions will also be shown over the worl which gives a more global view. 
 
