@@ -16,9 +16,9 @@ All data can be found in the folder *data*.
 I made the Design Product today and made some ideas for the JSON formats and different functions that I need to write.
 
 To do for tomorrow:
-- [x] Make sure the right data is downloaded for visualizations 2, 3 and 4.
-- [x] Make JSON file
-- [X] Make HTML files
+* Make sure the right data is downloaded for visualizations 2, 3 and 4.
+* Make JSON file
+* Make HTML files
 
 ### Day 4 (12-01-2017)
 I decided to make one big JSON file instead of two files. This is easy for visualisation 2 and 4. However, more attention need to be given to the dual line graph.
@@ -38,11 +38,11 @@ The timeslider is already in the HTML file, but not working yet
 * Start of a table -> This is a new idea, which is the last interactive component of the visualizations. In this table you can look up a country and see its ranking of that particular year.
 
 To do for today:
-- [X] Timeslider [source](http://bl.ocks.org/zanarmstrong/ddff7cd0b1220bc68a58) of used timeslider
+* Timeslider [source](http://bl.ocks.org/zanarmstrong/ddff7cd0b1220bc68a58) of used timeslider
 
 To do for tomorrow:
-- [ ] Legend piechart
-- [x] Start with the dual graph
+* Legend piechart
+* Start with the dual graph
 
 ### Day 7 (17-01-2016)
 Today I made the third visualisation and linked it with the worldmap. 
@@ -50,8 +50,8 @@ Today I made the third visualisation and linked it with the worldmap.
 So the timeslider, worldmap, piechart and linegraph are all working, but a little bit buggy and not pretty.
 
 To do for tomorrow:
-- [x] Make the dual graph more readable 
-- [ ] Start with the table
+* Make the dual graph more readable 
+* Start with the table
 
 ### Day 8 (18-01-2016)
 I made different css files to have a better overview for the different visualizations.
@@ -61,7 +61,7 @@ The dual graph is finished for the MVP.
 [Timeslider graph interaction](http://bl.ocks.org/benjchristensen/2657838)
 
 ### Day 9 (19-01-2017)
-- [x] Make the table (second interactive component)
+* Make the table (second interactive component)
 [Example1](http://bl.ocks.org/jonahwilliams/cc2de2eedc3896a3a96d)
 [Example2](http://bl.ocks.org/ahmohamed/4c4980f31abdef64e7e2)
 [Example3](http://blockbuilder.org/dhoboy/1ac430a7ca883e7a8c09)
@@ -78,9 +78,9 @@ For the beta version all this needs to be done and maybe at an extra interactive
 ## Week 3
 
 ### Day 11 (23-01-2017)
-- [ ] Donutchart instead of piechart. [example](http://bl.ocks.org/juan-cb/1984c7f2b446fffeedde)
- 		* Example can be used also for a select button
- 		* [Other example](http://jsfiddle.net/kerplunk/Q3dhh/)
+* Donutchart instead of piechart. [example](http://bl.ocks.org/juan-cb/1984c7f2b446fffeedde)
+ 	* Example can be used also for a select button
+ 	* [Other example](http://jsfiddle.net/kerplunk/Q3dhh/)
 
 ### Day 12 (24-01-2017)
 [Example donutchart](http://www.adeveloperdiary.com/d3-js/create-3d-donut-chart-using-d3-js/)
@@ -104,7 +104,7 @@ Made a new homepage with bootstrap. Timeslider is now located under the worldmap
 
 ## Week 4
 
-### Day 14 
+### Day 14 (30-01-2017)
 Did some little things:
 * Fixed bug in worldmap with click function
 * Header of the table is (almost) at the same width as the content
@@ -112,8 +112,7 @@ Did some little things:
 * The linegraph is alway from 1960 till 1930, may be awesome if you could change the x-axis with a click on function so that it could be changed to the amount of data.
 * If there are more than 3 datapoints missing (in a row) for the linegraph, the graph will not be made.
 
-
-### Day 15
+### Day 15 (31-01-2017)
 * All functions are now capitalized instead of the use of underscores.
 * Finished the linegraph in the introduction
 * Changed some beauty things: circle at timeslider, same graph style for the linegraph as the duallinegraph, all CO2 are now with subscript 2. 
@@ -122,3 +121,16 @@ For tomorrow:
 * Write the text on the page
 * Write the report
 * Online with github (index.html!)
+
+### Day 16 (01-02-2017)
+* Put units of every title
+* Made a start with the report
+* Changes all variable to capitalize
+* Fixed going online on github 
+
+### Day 17 (02-01-2017)
+* Finished report
+* Commented all files
+* Changed readme to current application with screenshots
+* Added a license
+* Put text on the page for the storytelling

@@ -2,13 +2,6 @@
 ## Data visualization - Programming Minor
 ## Door Marijn Gulpen 02-02-2017
 
-Your GitHub repository should contain a complete README.md file 
-- [ ] application name
-- [ ] a couple of screen shots (resized to appropriate width/height for readability)
-- [ ] its purpose, your name
-- [ ] a copyright statement. 
-**The README should be easy to read.**
-
 ### Carbon dioxide emissions and Welfar
 
 This website contains interactive visualizations about carbon dioxide emissions and its sources and gross domestic product (GDP). The purpose of this visualization is to show the links between these three and cancan be examined for every country. However, the data about emissions will also be shown over the worl which gives a more global view. 
