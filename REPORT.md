@@ -56,8 +56,8 @@ The application has all the components and visualisations that are described in 
 
 ### **References**
 
-*[Timeslider](http://bl.ocks.org/zanarmstrong/ddff7cd0b1220bc68a58)
-*[Dualgraph](http://bl.ocks.org/benjchristensen/2579619)
-*[Table](http://bl.ocks.org/jonahwilliams/cc2de2eedc3896a3a96d)
-*[Donutchart](http://bl.ocks.org/juan-cb/1984c7f2b446fffeedde)
-*The worldmap and the linegraph are made with old project from the course Data-Processing
+* [Timeslider](http://bl.ocks.org/zanarmstrong/ddff7cd0b1220bc68a58)
+* [Dualgraph](http://bl.ocks.org/benjchristensen/2579619)
+* [Table](http://bl.ocks.org/jonahwilliams/cc2de2eedc3896a3a96d)
+* [Donutchart](http://bl.ocks.org/juan-cb/1984c7f2b446fffeedde)
+* The worldmap and the linegraph are made with old project from the course Data-Processing
