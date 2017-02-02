@@ -25,8 +25,8 @@ var getDataGraph = function(dataset, countrycode){
     if (years >= 0) {
     	var noData = true;
     }
+    
     firstYear = years[0];
-    console.log(firstYear);
    	// If there are more than 4 years missing in a row, graph will not be drawn 
     for (var i = 0; i < years.length - 1; i++) {
     	if (years[i] - years[i + 1] < -4) 
