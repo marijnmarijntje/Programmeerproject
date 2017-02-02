@@ -1,10 +1,11 @@
 # Programmeerproject Report
-## Data visualisatie voor de minor programmeren
+## Data visualization - Programming Minor
 ## Door Marijn Gulpen 02-02-2017
 
 ### **Short description of the application**
 
-In this project data about global temperatures, carbon dioxide emissions and gdp is visualised with the use of three interactive visualizations and two extra interactive components. All visualizations are made with D3. The first visualization that appears shows the annual global temperature from 1980 till 2015 in a linegraph (source: [NASA](http://climate.nasa.gov/vital-signs/global-temperature). This visualization is not linked with the other visualization, however it is possible to hover over the line to get the accurate value of the temperature. This linegraph supports the introduction of the project, namely CO2 emissions and welfare. 
+In this project data about global temperatures, carbon dioxide emissions and gdp is visualised with the use of three interactive visualizations and two extra interactive components. All visualizations are made with D3. The first visualization that appears shows the annual global temperature from 1980 till 2015 in a linegraph (source: [NASA](http://climate.nasa.gov/vital-signs/global-temperature). This visualization is not linked with the other visualization, however it is possible to hover over the line to get the accurate value of the temperature. This linegraph supports the introduction of the project, namely CO2 emissions and welfare. This graph and introduction is not shown in the screenshot below. 
+
 Direct under the data of the CO2 emissions per country is visualisized in a worldmap. The amount of emissions is divided in 5 classes and each class has its own color. The sixth color is for countries that do no have any available data. The table next to the worldmap shows the same data, however it is ranked, countries with the highest emissions are standing on top of the table and the countries with the lowest at the bottom. Each country get its own (unique) ranking number. 
 Under these two visualization there is a timeline that makes it possible to show the data of another year in the visualizations.
 By clicking on a country in the worldmap of in the table a donutchart of this country will be drawn. In this donutchart data of that specific country in regard to their CO2 emission sources is visualized. For that specific country the CO2 emissions and the GDP are visualized over the years(depends on the amount of data) in a graph with two y axis. 
@@ -54,12 +55,3 @@ The design of this application has changed over the weeks for different reasons.
 ### **Ideal world**
 
 The application has all the components and visualizations that are described in the design product, with the changes mentioned above. Things like a timeslider and donutchart has improved the application to use and better to visualize. However, in the code there are things that could be better if there was more time. For example, I made two *no data functions* (one for the donutchart and one for duallinegraph). It was prettier if only one function was made, since they look quite the same. Another thing that could be added if there was more time is more interactivity between the table and the worldmap; that the tablerow of the specific country will light up when hovering over the worldmap. 
-
-
-### **References**
-
-* [Timeslider](http://bl.ocks.org/zanarmstrong/ddff7cd0b1220bc68a58)
-* [Dualgraph](http://bl.ocks.org/benjchristensen/2579619)
-* [Table](http://bl.ocks.org/jonahwilliams/cc2de2eedc3896a3a96d)
-* [Donutchart](http://bl.ocks.org/juan-cb/1984c7f2b446fffeedde)
-* The worldmap and the linegraph are made with old project from the course Data-Processing

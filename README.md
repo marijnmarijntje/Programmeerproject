@@ -1,6 +1,6 @@
-# Programmeerproject readme
-## Data visualisatie voor de minor programmeren
-## Door Marijn Gulpen 09-07-2017
+# Programmeerproject Readme
+## Data visualization - Programming Minor
+## Door Marijn Gulpen 02-02-2017
 
 Your GitHub repository should contain a complete README.md file 
 - [ ] application name
@@ -9,34 +9,41 @@ Your GitHub repository should contain a complete README.md file
 - [ ] a copyright statement. 
 **The README should be easy to read.**
 
-### *OPEN homepage.html*
+### Carbon dioxide emissions and Welfar
 
-### CO2 uitstoot
+This website contains interactive visualizations about carbon dioxide emissions and its sources and gross domestic product (GDP). The purpose of this visualization is to show the links between these three and cancan be examined for every country. However, the data about emissions will also be shown over the worl which gives a more global view. 
 
-De data visualisatie van dit project zal informatie verstrekken over de CO2 emissies over de hele wereld. De gebruiker komt dingen te weten per land maar ook zal er een algemeen beeld worden geschetst. Dit zal door middel van een wereldkaart en verschillende soorten grafieken gevisualiseerd worden. 
-De [worldbank databases](http://databank.worldbank.org/data/home.aspx) zullen worden gebruikt voor de informatie per land. Voor de temperatuurstijging zal een database van de [NASA](http://climate.nasa.gov/vital-signs/global-temperature) gebruikt worden. De data zal omgezet worden naar JSON waarbij de landen worden ingedeeld op hun landcode en daarnaast krijgen ze een fillkey voor hun kleur op de wereld kaart. 
+All visualization are made with D3 and the worldmap that will be used is located in the folder "javascript" under "project". 
 
-Alle visualisaties worden met D3 gemaakt. De wereldkaart die wordt gebruikt staat in de map javascript. 
+#### Visualizations
 
-#### Visualisaties
+###### **Visualization 1 Linegraph** 
+This graph shows the global annual temperature over the years and supports the introduction for the subject. This graph has no interation with the other visualizations and therefor was not part of the minimum viable project.
 
-###### **Visualisatie 1 Lijngrafiek** 
-De grafiek laat temperatuurstijging zien. Onder de grafiek wordt verteld wat de effecten zijn van de temperatuurstijging en de oorzaken. Één van de oorzaken is CO2 emissies en daar wordt dan verder op voortborduurt. Deze visualisatie heeft verder geen interactie met de andere visualisaties en aangezien het een extra visualisatie is zal hier pas op het laatst aandacht aan worden besteed. Het valt dus niet onder het *minimum viable product*. 
+![GitHub Logo](/doc/linegraph.png)
  
-###### **Visualisatie 2 Wereldkaart**
-Wereldkaart visualisatie met CO2 emissies van verschillende jaren (= *interactive component*) (maximaal tot 2013 ivm data). Kleurgebruik met verschillende klasses van hoog naar laag.
-Met een tooltip wordt wat algemene informatie gegeven over het land (zoals naam, totale populatie en gdp)
-Per landkaart wordt gevisualiseerd welke landen de grootste CO2 uitstoot hadden en ook welke de minst grote uitstoot hadden. In een tabel of in een barchart (= *interactive component*). 
+###### **Visualization 2 Worldmap**
+Worldmap visualizes CO2 emissions over the years 1960 till 2013 (=*interactive component*). The countryname and exact emission amount will be shown when the user hover over the map. The ranking of the countries based on their emissions is viewed in the table next to it (=*interactive component*)
+When the user clicks on a country in the table or in the worldmap, visualizations 3 and 4 will show data for that specific country.
 
-###### **Visualisatie 3 Lijngrafiek (2 y-assen)**
-Ook wordt er een lijngrafiek laten zien van de CO2 emissies van 1960 tm 2013 (lijn 1) en de gdp over hetzelfde aantal jaren (lijn 2).
+![GitHub Logo](/doc/worldmap.png)
 
-###### **Visualisatie 4 Piechart**
-Als er op een land geklikt wordt komt er een piechart met % CO2 emissies van verschillende bronnen, samen wordt dit 100%.
+###### **Visualization 3 Donutchart**
+Data about the source of the carbon dioxide emissions is visualized in this chart. By hovering over the different parts the percentage will be viewed and the legend will light up. If there is no data for this country, a "no data screen" will be shown.
 
-Visualisatie 2, 3 en 4 zullen met elkaar gelinkt worden. 
+![GitHub Logo](/doc/donutchart.png)
 
-Door te kijken naar de landen met de grootste uitstoot en de minste uitstoot zal er gekeken worden of er een link is met de bronnen en/of met de GDP van het land.
+###### **Visualization 4 Duallinegraph**
+This linegraph shows the emissions of the selected country and the GDP over the years. It is possible to hover over the graph to see the exact data. 
 
-![GitHub Logo](/doc/readme1.jpg)
+![GitHub Logo](/doc/duallinegraph.png)
 
+Visualization 2, 3 and 4 are linked together.
+
+### **References**
+
+* [Timeslider](http://bl.ocks.org/zanarmstrong/ddff7cd0b1220bc68a58)
+* [Dualgraph](http://bl.ocks.org/benjchristensen/2579619)
+* [Table](http://bl.ocks.org/jonahwilliams/cc2de2eedc3896a3a96d)
+* [Donutchart](http://bl.ocks.org/juan-cb/1984c7f2b446fffeedde)
+* The worldmap and the linegraph are made with old project from the course Data-Processing
